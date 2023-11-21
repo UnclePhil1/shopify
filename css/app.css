@@ -1,0 +1,532 @@
+:root {
+  /* PROFILE */
+  --profile-color: #36fba1;
+
+  /* GRAY COLOR CODES */
+  --gray-fifty: #656266;
+  --gray-hundred: #616161;
+  --gray-twoHundred: #322f33;
+  --gray-threeHundred: #1c181d;
+
+  /* FONT COLOR CODES */
+  --light: #e3e3e3;
+  --mid: #616161;
+  --dark: #475467;
+
+  /* STROKE COLOR CODES */
+  --stroke200: #ebebeb;
+  --light: #000000/7%;
+  --light: #FFFFFF/20%;
+
+  /* STATE COLOR CODES */
+  --hover: #f7f7f7;
+  --pressed: #f0f0f0;
+  --focused: #005bd3;
+
+  /* PLAIN COLOR CODES */
+  --white: #ffffff;
+  --background: #f1f1f1;
+
+  /* FONT SIZE 12PX */
+  --font-size-small: 12px;
+  --font-size-medium: 13px;
+  --font-size-large: 14px;
+  --icon-size: 20px;
+
+  /* FONT WEIGHT 12PX */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+}
+
+html,
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--background);
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  border: none;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 16px;
+  background-color: var(--gray-threeHundred);
+}
+
+.searchBar {
+  display: flex;
+  width: 80%;
+  padding: 4px 8px;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-hundred);
+  background: var(--gray-twoHundred);
+}
+
+.searchBar:hover {
+  border: 1px solid var(--hover);
+}
+.searchBar:focus {
+  border: 1px solid var(--pressed);
+}
+
+.searchBar > svg {
+  color: var(--white);
+  background: transparent;
+  cursor: pointer;
+}
+
+.searchBar > input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-medium);
+  outline: none;
+  color: var(--background);
+}
+
+.searchBar > input:focus {
+  border: none;
+  outline: none;
+}
+
+.icons {
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.notifyButton {
+  color: var(--white);
+  border-radius: 10px;
+  background-color: var(--gray-twoHundred);
+  border: 2px solid var(--gray-twoHundred);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
+}
+
+.notifyIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.notifyButton:hover {
+  cursor: pointer;
+}
+
+.dropDownContainer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 8px;
+}
+
+.userInfo {
+  width: 98%;
+  display: flex;
+  padding: 2px 2px 2px 8px;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--background);
+  border: 2px solid var(--background);
+  margin-bottom: 4px;
+  position: relative;
+  margin: 2px;
+}
+
+.dropDown {
+  display: flex;
+  padding: 2px 2px 2px 8px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: var(--gray-twoHundred);
+  border: 2px solid var(--gray-twoHundred);
+}
+
+.userInfo:hover {
+  cursor: pointer;
+  background: var(--hover);
+  border: 2px solid var(--hover);
+}
+.dropDown:hover,
+.notifyButton:hover {
+  cursor: pointer;
+  background: var(--gray-fifty);
+  border: 2px solid var(--gray-fifty);
+}
+
+.dropDown:focus,
+.notifyButton:focus,
+.userInfo:focus {
+  cursor: pointer;
+  border: 2px solid var(--focused);
+}
+
+.dropDown > p {
+  color: #e3e3e3;
+  font-size: var(--font-size-medium);
+}
+
+.dropDown > span {
+  display: flex;
+  height: 28px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background: var(--profile-color);
+}
+.userInfo span {
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background: var(--profile-color);
+  color: var(--gray-fifty);
+}
+
+.userInfo p {
+  font-weight: var(--font-weight-semibold);
+}
+.spotifyLogo {
+  float: left;
+}
+
+.mobileImage {
+  display: none;
+}
+
+.desktopImage {
+  display: block;
+}
+
+.profileBtn {
+  display: none;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  padding-bottom: 0px;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.monthlyPlanContainer {
+  width: 60%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background-color: var(--gray-threeHundred);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  position: relative;
+}
+
+.monthlyPlanContainer > p {
+  color: var(--white);
+}
+
+.monthlyPlanContainer > button {
+  display: flex;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -1px 0px 0px #b5b5b5 inset;
+  margin-right: 50px;
+  background-color: var(--white);
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-regular);
+  cursor: pointer;
+}
+
+.monthlyPlanContainer > button:hover {
+  background-color: var(--background);
+}
+.monthlyPlanContainer > button:focus {
+  background-color: var(--background);
+  border: 2px solid var(--focused);
+}
+
+.monthlyPlanContainer > svg {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+  right: -6px;
+  cursor: pointer;
+}
+
+/* CSS */
+.dp {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu{
+  width: 300px;
+  display: none;
+  position: absolute;
+  background-color: var(--white);
+  border: 1px solid var(--hover);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  min-width: 100%;
+  top: 140%;
+  right: 0;
+  z-index: 5;
+  border: 2px solid var(--white);
+  transition: all 0.5s;
+  border-radius: 10px;
+}
+
+.noticeBox-dropDown {
+  width: 350px;
+  min-width: 100%;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--white);
+  border: 1px solid var(--hover);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  min-width: 100%;
+  top: 140%;
+  right: 0;
+  z-index: 5;
+  border: 2px solid var(--white);
+  transition: all 0.5s;
+  border-radius: 10px;
+}
+
+.dropdown-menu a {
+  border-radius: 10px;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: var(--font-size-large);
+  margin: 2px;
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--hover);
+}
+.dropdown-menu a:focus {
+  background-color: var(--hover);
+  border: 2px solid var(--focused);
+}
+
+.checkProfileIcon {
+  float: right;
+  position: absolute;
+  right: 8px;
+}
+
+.storesIcon {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  background: transparent;
+  border: 2px solid transparent;
+  margin: 2px;
+  width: 98%;
+}
+
+.storesIcon:hover {
+  background-color: var(--hover);
+  cursor: pointer;
+}
+.storesIcon:focus {
+  border: 2px solid var(--focused);
+  cursor: pointer;
+}
+
+.storesIcon a {
+  background: transparent;
+}
+
+.horizonRol {
+  background: var(--background);
+  padding: 1px;
+  margin: 2px;
+}
+
+.profileBox {
+  display: flex;
+  flex-direction: column;
+}
+.profileBox h4 {
+  margin: 0 0 2px 0;
+}
+
+.emailSpan {
+  color: var(--gray-fifty);
+}
+
+.alertBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.alertBox p {
+  color: var(--gray-twoHundred);
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-semibold);
+}
+
+.alertText {
+  padding: 16px 1px;
+  background-color: var(--background);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-medium);
+  width: 100%;
+  color: var(--gray-fifty);
+  text-align: center;
+}
+
+@media only screen and (max-width: 425px) {
+  .mobileImage {
+    display: block;
+    width: 100px;
+  }
+
+  .searchBar {
+    width: 100%;
+  }
+
+  .monthlyPlanContainer {
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 0;
+  }
+
+  .monthlyPlanContainer > p {
+    padding: 12px;
+    width: 80%;
+    margin: 0;
+  }
+  .monthlyPlanContainer > button {
+    margin: 12px;
+  }
+
+  .monthlyPlanContainer > svg {
+    position: absolute;
+    top: 35%;
+    right: -3px;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .mobileImage {
+    display: block;
+    width: 50px;
+  }
+  .searchBar {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    display: flex;
+  }
+
+  .dropDown {
+    display: none;
+  }
+
+  .mobileImage {
+    display: block;
+  }
+
+  .desktopImage {
+    display: none;
+  }
+
+  .profileBtn {
+    display: flex;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background: var(--profile-color);
+    font-size: var(--font-size-small);
+    border: none;
+    cursor: pointer;
+  }
+
+  .searchBar {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .notifyIcon {
+    color: var(--white);
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: transparent;
+  }
+
+  .searchBar > svg {
+    width: 20px;
+    height: 20px;
+    color: var(--white);
+    background: transparent;
+  }
+
+ 
+}
+
+@media screen and (max-width: 320px) {
+  .noticeBox-dropDown {
+    width: calc(100% + 220px);
+    right: -40px;
+  }
+}
+@media screen and (min-width: 321px) and (max-width: 425px) {
+  .noticeBox-dropDown {
+    width: calc(100% + 250px);
+    right: -40px;
+  }
+}
