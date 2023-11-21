@@ -291,7 +291,7 @@ button {
   display: inline-block;
 }
 
-.dropdown-menu{
+.dropdown-menu, .dropdownMenuMobile{
   width: 300px;
   display: none;
   position: absolute;
@@ -328,7 +328,7 @@ button {
   border-radius: 10px;
 }
 
-.dropdown-menu a {
+.dropdown-menu a, .dropdownMenuMobile a {
   border-radius: 10px;
   color: black;
   padding: 12px 16px;
@@ -338,10 +338,10 @@ button {
   margin: 2px;
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu a:hover, .dropdownMenuMobile a:hover {
   background-color: var(--hover);
 }
-.dropdown-menu a:focus {
+.dropdown-menu a:focus, .dropdownMenuMobile a:focus {
   background-color: var(--hover);
   border: 2px solid var(--focused);
 }
@@ -451,6 +451,10 @@ button {
     top: 35%;
     right: -3px;
     cursor: pointer;
+  }
+
+  .dropdownMenuMobile{
+    right: -5px;
   }
 }
 
