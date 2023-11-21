@@ -231,7 +231,7 @@ button {
 .container {
   display: flex;
   width: 100%;
-  padding-bottom: 0px;
+  padding: 50px 0;
   flex-direction: column;
   align-items: center;
   gap: 32px;
@@ -294,7 +294,8 @@ button {
   display: inline-block;
 }
 
-.dropdown-menu, .dropdownMenuMobile{
+.dropdown-menu,
+.dropdownMenuMobile {
   width: 300px;
   display: none;
   position: absolute;
@@ -331,7 +332,8 @@ button {
   border-radius: 10px;
 }
 
-.dropdown-menu a, .dropdownMenuMobile a {
+.dropdown-menu a,
+.dropdownMenuMobile a {
   border-radius: 10px;
   color: black;
   padding: 12px 16px;
@@ -341,10 +343,12 @@ button {
   margin: 2px;
 }
 
-.dropdown-menu a:hover, .dropdownMenuMobile a:hover {
+.dropdown-menu a:hover,
+.dropdownMenuMobile a:hover {
   background-color: var(--hover);
 }
-.dropdown-menu a:focus, .dropdownMenuMobile a:focus {
+.dropdown-menu a:focus,
+.dropdownMenuMobile a:focus {
   background-color: var(--hover);
   border: 2px solid var(--focused);
 }
@@ -422,6 +426,221 @@ button {
   text-align: center;
 }
 
+.accordionBox {
+  width: 60%;
+  padding: 12px 16px;
+  box-shadow: 0 2px 4px 0 var(--background);
+  border-radius: 10px;
+  border: 2px solid var(--background);
+  align-self: center;
+}
+
+#accordionCard {
+  border: 2px solid var(--background);
+  margin: 0;
+  padding: 0;
+}
+
+#accordion {
+  margin: 0;
+  padding: 0;
+}
+
+.accordionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.accordionHeader h4 {
+  padding-left: 8px;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding-left: 24px;
+}
+
+.content div {
+  width: 68%;
+}
+
+.content div p {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-medium);
+}
+.content div p a{
+  color: var(--focused);
+  text-decoration: none;
+}
+
+.content div div button:nth-child(1) {
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--gray-threeHundred);
+  color: var(--white);
+  cursor: pointer;
+ border: 2px solid var(--gray-fifty);
+
+}
+.content div div button:nth-child(1):focus {
+ border: 2px solid var(--focused);
+ background: var(--gray-twoHundred);
+}
+.content div div button:nth-child(2) {
+  padding: 8px;
+  margin-left: 4px;
+  background: transparent;
+}
+
+#accordion li {
+  list-style: none;
+  width: 100%;
+  margin: 0 0 10px 0;
+  border-radius: 4px;
+  padding: 8px 0;
+}
+
+#accordion li:focus{
+  background: var(--background);
+}
+
+#accordionCard li {
+  list-style: none;
+  width: 100%;
+  margin-bottom: 10px;
+  background: var(--white);
+  border-radius: 4px;
+}
+
+#accordion li label{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-large);
+  cursor: pointer;
+  color: var(--gray-threeHundred);
+}
+
+
+#accordionCard li label {
+  /* padding: 10px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-large);
+  cursor: pointer;
+  color: var(--gray-threeHundred);
+}
+
+#accordion label + input[type="radio"] {
+  display: none;
+}
+
+#accordion .content {
+  line-height: 26px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+#accordion label + input[type="radio"]:checked + .content {
+  max-height: 400px;
+}
+#accordion label + input[type="radio"]:checked + #accordion > li {
+  background: var(--background);
+}
+
+.accordionContainer {
+  width: 100%;
+  background: var(--white);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.accordion-button {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: var(--white);
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+  position: relative;
+  padding-bottom: 16px;
+}
+.accordion-button h4,
+.accordion-button p {
+  margin: 0;
+  padding: 2px;
+}
+
+.accordion-button h4 {
+  font-size: var(--font-size-large);
+  color: var(--gray-threeHundred);
+}
+
+.accordion-content {
+  display: none;
+  background-color: var(--white);
+}
+
+.arrow {
+  content: "\25BE";
+  font-size: 20px;
+  position: absolute;
+  top: 25%;
+  right: 10px;
+  transform: translateY(-10%);
+  transition: transform 0.3s;
+}
+
+.accordion-button.active .arrow {
+  transform: rotate(180deg);
+}
+
+.imageContainer {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.imageContainer svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.imageContainer .spinnerImage {
+  display: none;
+  animation: spin 2s linear infinite;
+}
+
+.imageContainer .checkmarkImage {
+  display: none;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media only screen and (max-width: 425px) {
   .mobileImage {
     display: block;
@@ -456,8 +675,46 @@ button {
     cursor: pointer;
   }
 
-  .dropdownMenuMobile{
+  .dropdownMenuMobile {
     right: -5px;
+  }
+
+  .accordionBox,
+  .accordionContainer {
+    width: 100%;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .accordion-button{
+    padding: 8px;
+  }
+
+  .accordion-button p {
+    padding-top: 8px;
+  }
+
+  .accordion-content {
+    padding: 0;
+  }
+
+  #accordion li {
+    padding: 8px;
+  }
+
+  .arrow {
+    top: 15%;
+  }
+
+  .content {
+    flex-direction: column;
+    padding-left: 8px;
+  }
+  .content img {
+    display: none;
+  }
+  .content div {
+    width: 90%;
   }
 }
 
@@ -483,9 +740,9 @@ button {
   .dropDown {
     display: none;
   }
-.icons{
-  gap: 2px;
-}
+  .icons {
+    gap: 2px;
+  }
 
   .mobileImage {
     display: block;
@@ -517,14 +774,14 @@ button {
     position: relative;
   }
 
-  .searchBar svg{
+  .searchBar svg {
     padding: 0;
     left: 10px;
     width: 50px;
     position: absolute;
   }
 
-  .searchBar input{
+  .searchBar input {
     padding-left: 30px;
     width: 100%;
   }
@@ -538,7 +795,7 @@ button {
     padding: 2px;
   }
 
-  .notifyButton{
+  .notifyButton {
     background-color: transparent;
     border: 2px solid transparent;
   }
@@ -550,10 +807,10 @@ button {
     background: transparent;
   }
 
- .dropDownContainer{
-  width: 100px;
-  gap: 4px;
- }
+  .dropDownContainer {
+    width: 100px;
+    gap: 4px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -561,7 +818,7 @@ button {
     width: calc(100% + 220px);
     right: -40px;
   }
-  .searchBar input{
+  .searchBar input {
     padding-left: 30px;
     width: 100px;
   }
@@ -571,7 +828,7 @@ button {
     width: calc(100% + 250px);
     right: -40px;
   }
-  .searchBar input{
+  .searchBar input {
     padding-left: 30px;
     width: 180px;
   }
