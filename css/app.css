@@ -426,7 +426,7 @@ button {
   }
 
   .searchBar {
-    width: 100%;
+    width: calc(100% + 40px);
   }
 
   .monthlyPlanContainer {
@@ -464,7 +464,7 @@ button {
     width: 50px;
   }
   .searchBar {
-    width: 100%;
+    width: calc(100% + 40px);
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
