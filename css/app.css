@@ -112,11 +112,16 @@ button {
   border: 1px solid var(--hover);
 }
 
+.searchBar > input:focus {
+  border: none;
+  outline: none;
+}
+
 .searchBar:focus {
   border: 1px solid var(--pressed);
 }
 
-.searchBar > svg {
+.searchBar > .searchBarBtn > svg {
   color: var(--white);
   background: transparent;
   cursor: pointer;
@@ -132,9 +137,11 @@ button {
   color: var(--background);
 }
 
-.searchBar > input:focus {
-  border: none;
-  outline: none;
+
+.searchBarBtn{
+  background: none;
+  position: relative;
+  cursor: pointer;
 }
 
 /* ICON CONTAINER STYLES */
@@ -937,11 +944,19 @@ button {
     position: relative;
   }
 
-  .searchBar svg {
+  .searchBarBtn{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+
+  .searchBar .searchBarBtn svg {
     padding: 0;
     left: 10px;
-    width: 50px;
-    position: absolute;
+    width: 20px;
+    height: 20px;
+    color: var(--white);
+    background: transparent;
   }
 
   .searchBar input {
@@ -961,13 +976,6 @@ button {
   .notifyButton {
     background-color: transparent;
     border: 2px solid transparent;
-  }
-
-  .searchBar > svg {
-    width: 20px;
-    height: 20px;
-    color: var(--white);
-    background: transparent;
   }
 
   .dropDownContainer {
