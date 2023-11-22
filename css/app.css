@@ -702,7 +702,7 @@ button {
 }
 @media only screen and (max-width: 425px) {
   .logo {
-    width: 50px;
+    width: 70px;
   }
 
   .mobileImage {
@@ -793,7 +793,7 @@ button {
     width: 50px;
   }
   .searchBar {
-    width: calc(100% + 40px);
+    width: calc(100% + 20px);
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
