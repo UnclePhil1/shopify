@@ -1,3 +1,4 @@
+/* ROOT VARIABLES */
 :root {
   /* PROFILE */
   --profile-color: #36fba1;
@@ -15,8 +16,8 @@
 
   /* STROKE COLOR CODES */
   --stroke200: #ebebeb;
-  --light: #000000/7%;
-  --light: #FFFFFF/20%;
+  --light-stroke: #000000/7%;
+  --dark-stroke: #FFFFFF/20%;
 
   /* STATE COLOR CODES */
   --hover: #f7f7f7;
@@ -39,6 +40,7 @@
   --font-weight-semibold: 600;
 }
 
+/* GLOBAL STYLES */
 html,
 body {
   font-family: "Inter", sans-serif;
@@ -51,18 +53,20 @@ body {
   height: 100%;
 }
 
-.skeleton{
+/* SKELETON LOADING EFFECT */
+.skeleton {
   position: relative;
 }
-.skeleton::before{
-  content: '';
+
+.skeleton::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 10;
-  background: linear-gradient(90deg, #e7e5e5, #f3f2f2,#e7e5e5);
+  background: linear-gradient(90deg, #e7e5e5, #f3f2f2, #e7e5e5);
   background-size: 200%;
   animation: skeleton 1s infinite reverse;
 }
@@ -76,10 +80,12 @@ body {
   }
 }
 
+/* BUTTON STYLES */
 button {
   border: none;
 }
 
+/* NAVBAR STYLES */
 .navbar {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -90,6 +96,7 @@ button {
   background-color: var(--gray-threeHundred);
 }
 
+/* SEARCHBAR STYLES */
 .searchBar {
   display: flex;
   width: 80%;
@@ -104,6 +111,7 @@ button {
 .searchBar:hover {
   border: 1px solid var(--hover);
 }
+
 .searchBar:focus {
   border: 1px solid var(--pressed);
 }
@@ -129,6 +137,7 @@ button {
   outline: none;
 }
 
+/* ICON CONTAINER STYLES */
 .icons {
   display: flex;
   padding: 8px;
@@ -137,6 +146,7 @@ button {
   gap: 8px;
 }
 
+/* NOTIFICATION BUTTON STYLES */
 .notifyButton {
   color: var(--white);
   border-radius: 10px;
@@ -157,6 +167,7 @@ button {
   cursor: pointer;
 }
 
+/* DROPDOWN CONTAINER STYLES */
 .dropDownContainer {
   width: 100%;
   display: flex;
@@ -165,6 +176,7 @@ button {
   gap: 8px;
 }
 
+/* USER INFO STYLES */
 .userInfo {
   width: 98%;
   display: flex;
@@ -180,6 +192,18 @@ button {
   margin: 2px;
 }
 
+.userInfo:hover {
+  cursor: pointer;
+  background: var(--hover);
+  border: 2px solid var(--hover);
+}
+
+.userInfo:focus {
+  cursor: pointer;
+  border: 2px solid var(--focused);
+}
+
+/* DROPDOWN STYLES */
 .dropDown {
   display: flex;
   padding: 2px 2px 2px 8px;
@@ -190,11 +214,6 @@ button {
   border: 2px solid var(--gray-twoHundred);
 }
 
-.userInfo:hover {
-  cursor: pointer;
-  background: var(--hover);
-  border: 2px solid var(--hover);
-}
 .dropDown:hover,
 .notifyButton:hover {
   cursor: pointer;
@@ -214,15 +233,7 @@ button {
   font-size: var(--font-size-medium);
 }
 
-.dropDown > span {
-  display: flex;
-  height: 28px;
-  padding: 8px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 6px;
-  background: var(--profile-color);
-}
+.dropDown > span,
 .userInfo span {
   display: flex;
   padding: 8px;
@@ -230,16 +241,22 @@ button {
   align-items: center;
   border-radius: 6px;
   background: var(--profile-color);
+}
+
+.userInfo span {
   color: var(--gray-fifty);
 }
 
 .userInfo p {
   font-weight: var(--font-weight-semibold);
 }
+
+/* SPOTIFY LOGO STYLES */
 .spotifyLogo {
   float: left;
 }
 
+/* MOBILE/DESKTOP IMAGE STYLES */
 .mobileImage {
   display: none;
 }
@@ -248,11 +265,13 @@ button {
   display: block;
 }
 
+/* PROFILE BUTTON STYLES */
 .profileBtn {
   display: none;
   cursor: pointer;
 }
 
+/* CONTAINER STYLES */
 .container {
   display: flex;
   width: 100%;
@@ -260,8 +279,10 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 32px;
+  margin: 0 auto;
 }
 
+/* MONTHLY PLAN CONTAINER STYLES */
 .monthlyPlanContainer {
   width: 60%;
   padding: 12px 16px;
@@ -297,6 +318,7 @@ button {
 .monthlyPlanContainer > button:hover {
   background-color: var(--background);
 }
+
 .monthlyPlanContainer > button:focus {
   background-color: var(--background);
   border: 2px solid var(--focused);
@@ -313,7 +335,7 @@ button {
   width: 30px;
 }
 
-/* CSS */
+/* DROPDOWN MENU STYLES */
 .dp {
   position: relative;
   display: inline-block;
@@ -336,6 +358,7 @@ button {
   border-radius: 10px;
 }
 
+/* NOTICE BOX DROPDOWN STYLES */
 .noticeBox-dropDown {
   width: 350px;
   min-width: 100%;
@@ -372,18 +395,21 @@ button {
 .dropdownMenuMobile a:hover {
   background-color: var(--hover);
 }
+
 .dropdown-menu a:focus,
 .dropdownMenuMobile a:focus {
   background-color: var(--hover);
   border: 2px solid var(--focused);
 }
 
+/* CHECK PROFILE ICON STYLES */
 .checkProfileIcon {
   float: right;
   position: absolute;
   right: 8px;
 }
 
+/* STORES ICON STYLES */
 .storesIcon {
   display: flex;
   justify-content: start;
@@ -401,6 +427,7 @@ button {
   background-color: var(--hover);
   cursor: pointer;
 }
+
 .storesIcon:focus {
   border: 2px solid var(--focused);
   cursor: pointer;
@@ -410,24 +437,29 @@ button {
   background: transparent;
 }
 
+/* HORIZONTALLY ROLLED STYLES */
 .horizonRol {
   background: var(--background);
   padding: 1px;
   margin: 2px;
 }
 
+/* PROFILE BOX STYLES */
 .profileBox {
   display: flex;
   flex-direction: column;
 }
+
 .profileBox h4 {
   margin: 0 0 2px 0;
 }
 
+/* EMAIL SPAN STYLES */
 .emailSpan {
   color: var(--gray-fifty);
 }
 
+/* ALERT BOX STYLES */
 .alertBox {
   display: flex;
   justify-content: space-between;
@@ -451,6 +483,7 @@ button {
   text-align: center;
 }
 
+/* ACCORDION BOX STYLES */
 .accordionBox {
   width: 60%;
   padding: 12px 16px;
@@ -471,6 +504,7 @@ button {
   padding: 0;
 }
 
+/* ACCORDION HEADER STYLES */
 .accordionHeader {
   display: flex;
   justify-content: space-between;
@@ -482,6 +516,7 @@ button {
   margin: 0;
 }
 
+/* CONTENT STYLES */
 .content {
   display: flex;
   justify-content: space-between;
@@ -498,11 +533,12 @@ button {
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-medium);
 }
+
 .content div p a {
   color: var(--focused);
   text-decoration: none;
 }
-
+/* BUTTON STYLES WITHIN CONTENT DIV */
 .content div div button:nth-child(1) {
   padding: 8px;
   border-radius: 10px;
@@ -520,6 +556,7 @@ button {
   border: 2px solid var(--focused);
   background: var(--gray-threeHundred);
 }
+
 .content div div button:nth-child(2) {
   padding: 8px;
   margin-left: 4px;
@@ -532,23 +569,51 @@ button {
 .content div div button:nth-child(2):hover {
   background-color: var(--background);
 }
+
 .content div div button:nth-child(2):focus {
   border: 2px solid var(--focused);
   background-color: var(--white);
 }
 
+
+  /* ACCORDION BUTTON STYLES */
+.content div div button:nth-child(2) {
+  padding: 8px;
+  margin-left: 4px;
+  background: transparent;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.content div div button:nth-child(2):hover {
+  background-color: var(--background);
+}
+
+.content div div button:nth-child(2):focus {
+  border: 2px solid var(--focused);
+  background-color: var(--white);
+}
+
+/* ACCORDION LIST ITEM STYLES */
 #accordion li {
   list-style: none;
   width: 100%;
   margin: 0 0 10px 0;
   border-radius: 4px;
   padding: 8px 0;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#accordion li.active {
+  background-color: var(--background);
 }
 
 #accordion li:focus {
   background: var(--background);
 }
 
+/* ACCORDION CARD LIST ITEM STYLES */
 #accordionCard li {
   list-style: none;
   width: 100%;
@@ -557,48 +622,44 @@ button {
   border-radius: 4px;
 }
 
-#accordion li label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 18px;
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-large);
-  cursor: pointer;
-  color: var(--gray-threeHundred);
-}
-
+/* ACCORDION LABEL STYLES */
+#accordion li label,
 #accordionCard li label {
-  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: var(--font-size-medium);
   font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-large);
   cursor: pointer;
   color: var(--gray-threeHundred);
 }
 
-#accordion label + input[type="radio"] {
+/* ACCORDION INPUT STYLES */
+#accordion label + input[type="radio"],
+#accordionCard label + input[type="radio"] {
   display: none;
 }
 
-#accordion .content {
+/* ACCORDION CONTENT STYLES */
+#accordion .content,
+#accordionCard .content {
   line-height: 26px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s;
 }
 
-#accordion label + input[type="radio"]:checked + .content {
+#accordion label + input[type="radio"]:checked + .content,
+#accordionCard label + input[type="radio"]:checked + .content {
   max-height: 400px;
 }
 
-#accordion label + input[type="radio"]:checked + #accordion > li {
+#accordion label + input[type="radio"]:checked + #accordion > li,
+#accordionCard label + input[type="radio"]:checked + #accordionCard > li {
   background: var(--background);
 }
 
+/* ACCORDION CONTAINER STYLES */
 .accordionContainer {
   width: 100%;
   background: var(--white);
@@ -606,6 +667,7 @@ button {
   border-radius: 10px;
 }
 
+/* ACCORDION BUTTON STYLES */
 .accordion-button {
   width: 100%;
   text-align: left;
@@ -617,6 +679,7 @@ button {
   position: relative;
   padding-bottom: 16px;
 }
+
 .accordion-button h4,
 .accordion-button p {
   margin: 0;
@@ -628,11 +691,13 @@ button {
   color: var(--gray-threeHundred);
 }
 
+/* ACCORDION CONTENT STYLES */
 .accordion-content {
   display: none;
   background-color: var(--white);
 }
 
+/* ARROW ICON STYLES */
 .arrow {
   content: "\25BE";
   font-size: 20px;
@@ -647,6 +712,7 @@ button {
   transform: rotate(180deg);
 }
 
+/* IMAGE CONTAINER STYLES */
 .imageContainer {
   position: relative;
   width: 20px;
@@ -663,6 +729,10 @@ button {
   transition: opacity 0.2s ease-in-out;
 }
 
+.imageContainer h4{
+  font-size: var(--font-size-small);
+}
+
 .imageContainer .productImage {
   opacity: 1; /* Display the product image initially */
 }
@@ -676,6 +746,7 @@ button {
   display: none;
 }
 
+/* PROGRESS STYLES */
 .progress {
   display: flex;
   gap: 4px;
@@ -746,12 +817,17 @@ button {
     width: calc(100% + 20px);
   }
 
+  .searchBar input {
+    width: calc(100% + 100% + 100%);
+  }
+
   .monthlyPlanContainer {
     width: 100%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     border-radius: 0;
+    margin: 0;
   }
 
   .monthlyPlanContainer > p {
@@ -801,16 +877,6 @@ button {
     top: 15%;
   }
 
-  .content {
-    flex-direction: column;
-    padding-left: 8px;
-  }
-  .content img {
-    display: none;
-  }
-  .content div {
-    width: 90%;
-  }
 }
 
 @media only screen and (min-width: 426px) and (max-width: 768px) {
@@ -880,7 +946,7 @@ button {
 
   .searchBar input {
     padding-left: 30px;
-    width: 100%;
+    /* width: calc(100% + 40px); */
   }
 
   .notifyIcon {
@@ -908,6 +974,16 @@ button {
     width: 100px;
     gap: 4px;
   }
+  .content {
+    flex-direction: column;
+    padding-left: 8px;
+  }
+  .content img {
+    display: none;
+  }
+  .content div {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -915,18 +991,15 @@ button {
     width: calc(100% + 220px);
     right: -40px;
   }
-  .searchBar input {
-    padding-left: 30px;
-    /* width: 100px; */
-  }
 }
 @media screen and (min-width: 321px) and (max-width: 425px) {
   .noticeBox-dropDown {
     width: calc(100% + 250px);
     right: -40px;
   }
-  .searchBar input {
-    padding-left: 30px;
-    width: 180px;
+}
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .searchBar input{
+    width: calc(100% + 100% + 100% + 60%);
   }
 }

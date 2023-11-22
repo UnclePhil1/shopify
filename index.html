@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotify</title>
     <link rel="stylesheet" href="/css/app.css" />
-    <link rel="shortcut icon" href="https://crushingit.tech/hackathon-assets/shopify-icon.svg" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="https://crushingit.tech/hackathon-assets/shopify-icon.svg"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <!-- NAVBAR SECTION -->
@@ -74,27 +78,29 @@
           </g>
         </g>
       </svg>
-
+      <!-- SEARCH BAR -->
       <div class="skeleton searchBar">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="28"
-          height="28"
-          viewBox="0 0 13 14"
-          fill="none"
-          class="skeleton icons"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M8.82264 10.3833C7.89957 11.0841 6.74835 11.5 5.5 11.5C2.46243 11.5 0 9.03757 0 6C0 2.96243 2.46243 0.5 5.5 0.5C8.53757 0.5 11 2.96243 11 6C11 7.24835 10.5841 8.39957 9.8833 9.32264L12.7803 12.2197C13.0732 12.5126 13.0732 12.9874 12.7803 13.2803C12.4874 13.5732 12.0126 13.5732 11.7197 13.2803L8.82264 10.3833ZM9.5 6C9.5 8.20914 7.70914 10 5.5 10C3.29086 10 1.5 8.20914 1.5 6C1.5 3.79086 3.29086 2 5.5 2C7.70914 2 9.5 3.79086 9.5 6Z"
-            fill="#fff"
-          />
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="28"
+            viewBox="0 0 13 14"
+            fill="none"
+            class="skeleton icons"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M8.82264 10.3833C7.89957 11.0841 6.74835 11.5 5.5 11.5C2.46243 11.5 0 9.03757 0 6C0 2.96243 2.46243 0.5 5.5 0.5C8.53757 0.5 11 2.96243 11 6C11 7.24835 10.5841 8.39957 9.8833 9.32264L12.7803 12.2197C13.0732 12.5126 13.0732 12.9874 12.7803 13.2803C12.4874 13.5732 12.0126 13.5732 11.7197 13.2803L8.82264 10.3833ZM9.5 6C9.5 8.20914 7.70914 10 5.5 10C3.29086 10 1.5 8.20914 1.5 6C1.5 3.79086 3.29086 2 5.5 2C7.70914 2 9.5 3.79086 9.5 6Z"
+              fill="#fff"
+            />
+          </svg>
         <input type="text" placeholder="Search" />
       </div>
+      <!-- DROPDOWN FOR NOTIFICATION && USER PROFILE CONTAINER -->
       <div class="skeleton dropDownContainer">
         <div class="skeleton dp">
+          <!-- NOTIFICATION BUTTON -->
           <button class="skeleton notifyButton" id="toggleNotice">
             <svg
               width="41"
@@ -112,6 +118,7 @@
               />
             </svg>
           </button>
+          <!-- NOTIFICATION DROPDOWN -->
           <div class="skeleton noticeBox-dropDown">
             <div class="skeleton alertBox">
               <p>Alerts</p>
@@ -162,12 +169,14 @@
             </div>
           </div>
         </div>
-
+        <!-- USER DROPDOWN CONTAINER -->
         <div class="skeleton dp">
+          <!-- USERS DROPDOWN BUTTON -->
           <button class="skeleton dropDown" id="dropdownButton">
             <p>Davii Collections</p>
             <span>DC</span>
           </button>
+          <!-- USERS DROPDOWN -->
           <div class="skeleton dropdown-menu">
             <button class="skeleton userInfo">
               <span>DC</span>
@@ -189,6 +198,7 @@
                 />
               </svg>
             </button>
+
             <button class="skeleton storesIcon">
               <svg
                 width="30"
@@ -221,8 +231,11 @@
             <a href="#">Log out</a>
           </div>
         </div>
+        <!-- MOBILE VIEW USERS DROPDOWN -->
         <div class="skeleton dp">
-          <button class="skeleton profileBtn" id="dropdownTogglemobile">DC</button>
+          <button class="skeleton profileBtn" id="dropdownTogglemobile">
+            DC
+          </button>
           <div class="skeleton dropdownMenuMobile">
             <button class="skeleton userInfo">
               <span>DC</span>
@@ -297,13 +310,16 @@
           />
         </svg>
       </section>
+      <!-- ACCORDION SECTION -->
       <section class="skeleton accordionBox">
+        <!-- ACCORDION INNER CONTAINER -->
         <div class="skeleton accordionContainer">
+          <!-- ISCHECKED OR BUTTON TO OPEN ACCORDION -->
           <button class="skeleton accordion-button">
             <h4>Setup guide</h4>
             <p>Use this personalized guide to get your store up and running.</p>
             <div class="skeleton progress">
-              <p class="skeleton progress-text">1 / 5 completed</p>
+              <p class="skeleton progress-text" id="counter">0 / 5</p>
               <div class="skeleton progressBox">
                 <div class="skeleton progress-bar">
                   <div></div>
@@ -388,6 +404,7 @@
                   </span>
                 </label>
                 <input type="radio" name="accordion" id="first" checked />
+                <!-- ACCORDION CONTENT -->
                 <div class="skeleton content">
                   <div>
                     <p>
@@ -405,6 +422,7 @@
                   />
                 </div>
               </li>
+              <!-- SECOND ACCORDION -->
               <li>
                 <label for="second">
                   <span class="skeleton accordionHeader">
@@ -481,6 +499,7 @@
                   />
                 </div>
               </li>
+              <!-- THRID ACCORDION -->
               <li>
                 <label for="third">
                   <span class="skeleton accordionHeader">
@@ -557,6 +576,7 @@
                   />
                 </div>
               </li>
+              <!-- FORTH ACCORDION -->
               <li>
                 <label for="forth">
                   <span class="skeleton accordionHeader">
@@ -633,6 +653,8 @@
                   />
                 </div>
               </li>
+
+              <!-- FIFITH ACCORDION -->
               <li>
                 <label for="fifth">
                   <span class="skeleton accordionHeader">
