@@ -488,7 +488,7 @@ button {
 }
 
 .content div div button:nth-child(1):hover {
- background-color: var(--gray-threeHundred);
+  background-color: var(--gray-threeHundred);
 }
 
 .content div div button:nth-child(1):focus {
@@ -502,14 +502,13 @@ button {
   border-radius: 10px;
   border: 2px solid transparent;
   cursor: pointer;
-
 }
 
 .content div div button:nth-child(2):hover {
   background-color: var(--background);
 }
 .content div div button:nth-child(2):focus {
-  border:2px solid var(--focused);
+  border: 2px solid var(--focused);
   background-color: var(--white);
 }
 
@@ -702,9 +701,19 @@ button {
   }
 }
 @media only screen and (max-width: 425px) {
+  .logo {
+    width: 50px;
+  }
+
   .mobileImage {
     display: block;
-    width: 100px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    left: 20px;
   }
 
   .searchBar {
@@ -792,11 +801,11 @@ button {
 
 @media only screen and (max-width: 768px) {
   .navbar {
-   display: grid;
-   grid-template-columns: 1fr 2fr 1fr;
-   gap: 4px;
-   justify-content: space-between;
-   align-items: center;
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
   }
 
   .dropDown {
