@@ -792,9 +792,11 @@ button {
 
 @media only screen and (max-width: 768px) {
   .navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+   display: grid;
+   grid-template-columns: 1fr 2fr 1fr;
+   gap: 4px;
+   justify-content: space-between;
+   align-items: center;
   }
 
   .dropDown {
@@ -838,11 +840,11 @@ button {
     padding: 0;
     left: 10px;
     width: 50px;
-    /* position: absolute; */
+    position: absolute;
   }
 
   .searchBar input {
-    /* padding-left: 30px; */
+    padding-left: 30px;
     width: 100%;
   }
 
@@ -880,7 +882,7 @@ button {
   }
   .searchBar input {
     padding-left: 30px;
-    width: 100px;
+    /* width: 100px; */
   }
 }
 @media screen and (min-width: 321px) and (max-width: 425px) {
