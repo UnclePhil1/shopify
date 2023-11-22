@@ -838,11 +838,11 @@ button {
     padding: 0;
     left: 10px;
     width: 50px;
-    /* position: absolute; */
+    position: absolute;
   }
 
   .searchBar input {
-    /* padding-left: 30px; */
+    padding-left: 30px;
     width: 100%;
   }
 
@@ -880,7 +880,7 @@ button {
   }
   .searchBar input {
     padding-left: 30px;
-    width: 100px;
+    /* width: 100px; */
   }
 }
 @media screen and (min-width: 321px) and (max-width: 425px) {
