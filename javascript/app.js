@@ -75,29 +75,78 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+const containers = document.querySelectorAll(".imageContainer");
 
-const container = document.querySelector(".imageContainer");
-const productImage = container.querySelector(".productImage");
-const spinnerImage = container.querySelector(".spinnerImage");
-const checkmarkImage = container.querySelector(".checkmarkImage");
-let isChecked = false;
+for (const container of containers) {
+  const productImage = container.querySelector(".productImage");
+  const spinnerImage = container.querySelector(".spinnerImage");
+  const checkmarkImage = container.querySelector(".checkmarkImage");
+  const accordionContent = container.parentElement.querySelector(".content");
+  let isChecked = false; // Track the checked state of the image
+  // let accordionIsOpen = accordionContent.style.maxHeight === "400px"; // Track the accordion's open state
 
-container.addEventListener("click", () => {
-  isChecked = !isChecked; // Toggle the isChecked flag
+  container.addEventListener("click", () => {
+    if (!isChecked) {
+      // If the image is not checked
+      // Open the accordion and check the image
+      productImage.style.opacity = 0;
+      spinnerImage.style.opacity = 1;
+      spinnerImage.style.display = "block";
 
-  if (isChecked) {
-    productImage.style.opacity = 0;
-    spinnerImage.style.opacity = 1;
-    spinnerImage.style.display = "block";
+      setTimeout(() => {
+        spinnerImage.style.display = "none";
+        checkmarkImage.style.opacity = 1;
+        checkmarkImage.style.display = "block";
+        isChecked = true; // Update the checked state
+        accordionIsOpen = false; // Update the accordion's open state
+      }, 1000);
+    } else if (!accordionIsOpen) {
+      // If the image is already checked and the accordion is closed
+      // Uncheck the image without opening the accordion
+      checkmarkImage.style.opacity = 0;
+      checkmarkImage.style.display = "none";
+      productImage.style.opacity = 1;
+      isChecked = false; // Update the checked state
+    } else {
+      // If the image is already checked and the accordion is open
+      // Uncheck the image and keep the accordion open
+      checkmarkImage.style.opacity = 0;
+      checkmarkImage.style.display = "none";
+      productImage.style.opacity = 1;
+      isChecked = false; // Update the checked state
+    }
+  });
+}
 
-    setTimeout(() => {
-      spinnerImage.style.display = "none";
-      checkmarkImage.style.opacity = 1;
-      checkmarkImage.style.display = "block";
-    }, 1000);
+const totalImageContainers =
+  document.querySelectorAll(".imageContainer").length;
+let checkedImageContainers = 0;
+const progressBar = document.querySelector(".progress-bar");
+
+function updateProgressBar() {
+  const progressPercentage =
+    (checkedImageContainers / totalImageContainers) * 100;
+  progressBar.style.width = `${progressPercentage}%`;
+
+  if (progressPercentage > 0) {
+    progressBar.classList.add("active");
   } else {
-    checkmarkImage.style.opacity = 0;
-    checkmarkImage.style.display = "none";
-    productImage.style.opacity = 1;
+    progressBar.classList.remove("active");
   }
+}
+
+document.querySelectorAll(".imageContainer").forEach((container) => {
+  container.addEventListener("click", () => {
+    if (container.classList.contains("checked")) {
+      checkedImageContainers--;
+      container.classList.remove("checked");
+    } else {
+      checkedImageContainers++;
+      container.classList.add("checked");
+    }
+
+    updateProgressBar();
+  });
 });
+
+

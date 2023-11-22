@@ -473,7 +473,7 @@ button {
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-medium);
 }
-.content div p a{
+.content div p a {
   color: var(--focused);
   text-decoration: none;
 }
@@ -481,20 +481,36 @@ button {
 .content div div button:nth-child(1) {
   padding: 8px;
   border-radius: 10px;
-  background: var(--gray-threeHundred);
+  background: var(--gray-twoHundred);
   color: var(--white);
   cursor: pointer;
- border: 2px solid var(--gray-fifty);
-
+  border: 2px solid var(--gray-fifty);
 }
+
+.content div div button:nth-child(1):hover {
+ background-color: var(--gray-threeHundred);
+}
+
 .content div div button:nth-child(1):focus {
- border: 2px solid var(--focused);
- background: var(--gray-twoHundred);
+  border: 2px solid var(--focused);
+  background: var(--gray-threeHundred);
 }
 .content div div button:nth-child(2) {
   padding: 8px;
   margin-left: 4px;
   background: transparent;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+
+}
+
+.content div div button:nth-child(2):hover {
+  background-color: var(--background);
+}
+.content div div button:nth-child(2):focus {
+  border:2px solid var(--focused);
+  background-color: var(--white);
 }
 
 #accordion li {
@@ -505,7 +521,7 @@ button {
   padding: 8px 0;
 }
 
-#accordion li:focus{
+#accordion li:focus {
   background: var(--background);
 }
 
@@ -517,7 +533,7 @@ button {
   border-radius: 4px;
 }
 
-#accordion li label{
+#accordion li label {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -527,7 +543,6 @@ button {
   cursor: pointer;
   color: var(--gray-threeHundred);
 }
-
 
 #accordionCard li label {
   /* padding: 10px; */
@@ -555,6 +570,7 @@ button {
 #accordion label + input[type="radio"]:checked + .content {
   max-height: 400px;
 }
+
 #accordion label + input[type="radio"]:checked + #accordion > li {
   background: var(--background);
 }
@@ -623,6 +639,10 @@ button {
   transition: opacity 0.2s ease-in-out;
 }
 
+.imageContainer .productImage {
+  opacity: 1; /* Display the product image initially */
+}
+
 .imageContainer .spinnerImage {
   display: none;
   animation: spin 2s linear infinite;
@@ -630,6 +650,47 @@ button {
 
 .imageContainer .checkmarkImage {
   display: none;
+}
+
+.progress {
+  display: flex;
+  gap: 4px;
+}
+
+.progressBox {
+  width: 70px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.progress-bar {
+  height: 5px;
+  border-radius: 10px;
+  background-color: var(--background);
+  position: relative;
+}
+
+.backgroundProgress {
+  height: 5px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 0 20px;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.progress-bar div {
+  height: 5px;
+  width: 10px;
+  border-radius: 10px;
+  background-color: var(--gray-threeHundred);
+}
+
+.progress-bar.active {
+  background-color: var(--gray-threeHundred);
+  transition: width 0.2s ease-in-out;
 }
 
 @keyframes spin {
@@ -640,15 +701,13 @@ button {
     transform: rotate(360deg);
   }
 }
-
 @media only screen and (max-width: 425px) {
   .mobileImage {
     display: block;
-    width: 100px;
   }
 
   .searchBar {
-    width: calc(100% + 40px);
+    width: calc(100% + 20px);
   }
 
   .monthlyPlanContainer {
@@ -686,7 +745,7 @@ button {
     padding: 0;
   }
 
-  .accordion-button{
+  .accordion-button {
     padding: 8px;
   }
 
