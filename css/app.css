@@ -875,6 +875,10 @@ button {
   }
 }
 @media only screen and (max-width: 425px) {
+.container{
+  padding: 15px 0;
+}
+
   .logo {
     width: 70px;
     padding: 0 10px;
@@ -906,7 +910,7 @@ button {
     justify-content: flex-start;
     align-items: flex-start;
     border-radius: 0;
-    margin: 0;
+
   }
 
   .monthlyPlanContainer > p {
