@@ -831,6 +831,10 @@ button {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background: var(--background);
+  height: 5px;
+  margin-top: 6px;
+  border-radius: 10px;
 }
 
 .progress-bar {
