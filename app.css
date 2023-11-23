@@ -96,8 +96,8 @@ button {
   background-color: var(--gray-threeHundred);
 }
 
-/* SEARCHBAR STYLES */
-.searchBar {
+/* search-bar STYLES */
+.search-bar {
   display: flex;
   width: 80%;
   padding: 4px 8px;
@@ -108,29 +108,29 @@ button {
   background: var(--gray-twoHundred);
 }
 
-.searchBar:hover {
+.search-bar:hover {
   outline: 2px solid var(--hover);
 }
 
-.searchBar > input:focus {
+.search-bar > input:focus {
   border: none;
   outline: none;
 }
 
-.searchBar:focus,
-.searchBar:focus-visible
+.search-bar:focus,
+.search-bar:focus-visible
  {
   outline: 2px solid var(--white);
 }
 
 
-.searchBar > .searchBarBtn > svg {
+.search-bar > .search-barBtn > svg {
   color: var(--white);
   background: transparent;
   cursor: pointer;
 }
 
-.searchBar > input {
+.search-bar > input {
   width: 100%;
   background: transparent;
   border: none;
@@ -141,14 +141,14 @@ button {
 }
 
 
-.searchBarBtn{
+.search-barBtn{
   background: none;
   position: relative;
   cursor: pointer;
   border-radius: 10px;
 }
 
-.searchBarBtn:focus{
+.search-barBtn:focus-visible{
   border: 1px solid var(--white);
   outline: 1px solid var(--white);
 }
@@ -188,7 +188,7 @@ button {
 }
 
 /* DROPDOWN CONTAINER STYLES */
-.dropDownContainer {
+.dropDown-container {
   width: 100%;
   display: flex;
   justify-content: end;
@@ -274,12 +274,12 @@ button {
 }
 
 /* SPOTIFY LOGO STYLES */
-.spotifyLogo {
+.spotify-logo {
   float: left;
 }
 
 /* MOBILE/DESKTOP IMAGE STYLES */
-.mobileImage {
+.mobile-image {
   display: none;
 }
 
@@ -875,12 +875,16 @@ button {
   }
 }
 @media only screen and (max-width: 425px) {
+.container{
+  padding: 15px 0;
+}
+
   .logo {
     width: 70px;
     padding: 0 10px;
   }
 
-  .mobileImage {
+  .mobile-image {
     display: block;
     width: 30px;
     height: 30px;
@@ -891,11 +895,11 @@ button {
     left: 20px;
   }
 
-  .searchBar {
+  .search-bar {
     width: calc(100% + 20px);
   }
 
-  .searchBar input {
+  .search-bar input {
     width: calc(100% + 100% + 100%);
     font-size: var(--font-size-large);
   }
@@ -906,7 +910,7 @@ button {
     justify-content: flex-start;
     align-items: flex-start;
     border-radius: 0;
-    margin: 0;
+
   }
 
   .monthlyPlanContainer > p {
@@ -958,11 +962,11 @@ button {
 }
 
 @media only screen and (min-width: 426px) and (max-width: 768px) {
-  .mobileImage {
+  .mobile-image {
     display: block;
     width: 50px;
   }
-  .searchBar {
+  .search-bar {
     width: calc(100% + 20px);
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -985,7 +989,7 @@ button {
     gap: 2px;
   }
 
-  .mobileImage {
+  .mobile-image {
     display: block;
     width: 50px;
   }
@@ -1006,7 +1010,7 @@ button {
     cursor: pointer;
   }
 
-  .searchBar {
+  .search-bar {
     height: 30px;
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -1015,13 +1019,13 @@ button {
     position: relative;
   }
 
-  .searchBarBtn{
+  .search-barBtn{
     position: absolute;
     width: 20px;
     height: 20px;
   }
 
-  .searchBar .searchBarBtn svg {
+  .search-bar .search-barBtn svg {
     padding: 0;
     left: 10px;
     width: 20px;
@@ -1030,7 +1034,7 @@ button {
     background: transparent;
   }
 
-  .searchBar input {
+  .search-bar input {
     padding-left: 30px;
     /* width: calc(100% + 40px); */
   }
@@ -1050,7 +1054,7 @@ button {
    
   }
 
-  .dropDownContainer {
+  .dropDown-container {
     width: 100px;
     gap: 4px;
   }
@@ -1079,7 +1083,7 @@ button {
   }
 }
 @media screen and (min-width: 426px) and (max-width: 768px) {
-  .searchBar input{
+  .search-bar input{
     width: calc(100% + 100% + 100% + 60%);
   }
 }

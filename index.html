@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotify</title>
-    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/app.css" />
     <link
       rel="shortcut icon"
       href="https://crushingit.tech/hackathon-assets/shopify-icon.svg"
@@ -13,15 +13,17 @@
   </head>
   <body>
     <!-- NAVBAR SECTION -->
+
     <nav class="skeleton navbar">
-      <div class="skeleton logo">
+      <div class="skeleton logo" aria-label="Spotify Logo">
         <svg
           fill="none"
           height="30"
           viewBox="0 0 105 30"
           width="105"
           xmlns="http://www.w3.org/2000/svg"
-          class="skeleton spotifyLogo desktopImage"
+          class="skeleton spotify-logo desktopImage"
+          aria-hidden="true"
         >
           <g fill="#fff">
             <path
@@ -59,7 +61,8 @@
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        class="skeleton spotifyLogo mobileImage"
+        class="skeleton spotify-logo mobile-image"
+        aria-hidden="true"
       >
         <g id="Shopify.com svg">
           <g id="Group">
@@ -79,8 +82,13 @@
         </g>
       </svg>
       <!-- SEARCH BAR -->
-      <div class="skeleton searchBar" tabindex="0">
-        <button type="submit" onclick="handleSearch()" class="searchBarBtn">
+      <div class="skeleton search-bar" tabindex="0" role="search">
+        <button
+          type="submit"
+          onclick="handleSearch()"
+          class="search-barBtn"
+          aria-label="Search"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
@@ -88,6 +96,7 @@
             viewBox="0 0 13 14"
             fill="none"
             class="skeleton icons"
+            aria-hidden="true"
           >
             <path
               fill-rule="evenodd"
@@ -97,13 +106,24 @@
             />
           </svg>
         </button>
-        <input type="text" placeholder="Search" id="searchInput"/>
+        <input
+          type="text"
+          placeholder="Search"
+          id="searchInput"
+          aria-label="Search Input"
+        />
       </div>
       <!-- DROPDOWN FOR NOTIFICATION && USER PROFILE CONTAINER -->
-      <div class="skeleton dropDownContainer">
+      <div class="skeleton dropDown-container">
         <div class="skeleton dp">
           <!-- NOTIFICATION BUTTON -->
-          <button class="skeleton notifyButton" id="toggleNotice">
+          <button
+            class="skeleton notifyButton"
+            id="toggleNotice"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="notification-button"
+          >
             <svg
               width="41"
               height="40"
@@ -121,7 +141,12 @@
             </svg>
           </button>
           <!-- NOTIFICATION DROPDOWN -->
-          <div class="skeleton noticeBox-dropDown" tabindex="0">
+          <div
+            class="skeleton noticeBox-dropDown"
+            tabindex="0"
+            id="notification-button"
+            aria-labelledby="toggleNotice"
+          >
             <div class="skeleton alertBox" t>
               <p>Alerts</p>
               <span class="alertSvgIcons" tabindex="0">
@@ -174,13 +199,26 @@
         <!-- USER DROPDOWN CONTAINER -->
         <div class="skeleton dp">
           <!-- USERS DROPDOWN BUTTON -->
-          <button class="skeleton dropDown" id="dropdownButton">
+          <button
+            class="skeleton dropDown"
+            id="dropdownButton"
+            aria-label="User Profile"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="profile-menu-button"
+          >
             <p>Davii Collections</p>
             <span>DC</span>
           </button>
           <!-- USERS DROPDOWN -->
-          <div class="skeleton dropdown-menu" tabindex="0">
-            <button class="skeleton userInfo">
+          <div
+            class="skeleton dropdown-menu"
+            tabindex="0"
+            role="menu"
+            id="profile-menu-button"
+            aria-labelledby="dropdownButton"
+          >
+            <button class="skeleton userInfo" role="menuitem">
               <span>DC</span>
               <p>Davii Collections</p>
               <svg
@@ -201,7 +239,7 @@
               </svg>
             </button>
 
-            <button class="skeleton storesIcon" tabindex="0">
+            <button class="skeleton storesIcon" tabindex="0" role="menuitem">
               <svg
                 width="30"
                 height="30"
@@ -219,27 +257,40 @@
               <a href="#"> All stores </a>
             </button>
             <div class="skeleton horizonRol"></div>
-            <a href="#">Help Center</a>
-            <a href="#">Changelog</a>
-            <a href="#">Community forums</a>
-            <a href="#">Hire a Shopify Partner</a>
-            <a href="#">Keyboard shortcuts</a>
+            <a href="#" role="menuitem">Help Center</a>
+            <a href="#" role="menuitem">Changelog</a>
+            <a href="#" role="menuitem">Community forums</a>
+            <a href="#" role="menuitem">Hire a Shopify Partner</a>
+            <a href="#" role="menuitem">Keyboard shortcuts</a>
             <div class="skeleton horizonRol"></div>
-            <a href="#" class="skeleton profileBox">
+            <a href="#" class="skeleton profileBox" role="menuitem">
               <h4>David Micheal</h4>
               <span class="skeleton emailSpan">davidmicheal@gmail.com</span>
             </a>
-            <a href="#">Manage account</a>
-            <a href="#">Log out</a>
+            <a href="#" role="menuitem">Manage account</a>
+            <a href="#" role="menuitem">Log out</a>
           </div>
         </div>
         <!-- MOBILE VIEW USERS DROPDOWN -->
         <div class="skeleton dp">
-          <button class="skeleton profileBtn" id="dropdownTogglemobile">
+          <button
+            class="skeleton profileBtn"
+            id="dropdownTogglemobile"
+            aria-label="User Profile"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="profile-menu-mobile-button"
+          >
             DC
           </button>
-          <div class="skeleton dropdownMenuMobile" tabindex="0">
-            <button class="skeleton userInfo">
+          <div
+            class="skeleton dropdownMenuMobile"
+            tabindex="0"
+            role="menu"
+            id="profile-menu-mobile-button"
+            aria-labelledby="dropdownTogglemobile"
+          >
+            <button class="skeleton userInfo" role="menuitem">
               <span>DC</span>
               <p>Davii Collections</p>
               <svg
@@ -260,7 +311,7 @@
               </svg>
             </button>
 
-            <button class="skeleton storesIcon">
+            <button class="skeleton storesIcon" role="menuitem">
               <svg
                 width="30"
                 height="30"
@@ -275,21 +326,21 @@
                   fill="#000"
                 />
               </svg>
-              <a href="#"> All stores </a>
+              <a href="#" role="menuitem"> All stores </a>
             </button>
             <div class="skeleton horizonRol"></div>
-            <a href="#">Help Center</a>
-            <a href="#">Changelog</a>
-            <a href="#">Community forums</a>
-            <a href="#">Hire a Shopify Partner</a>
-            <a href="#">Keyboard shortcuts</a>
+            <a href="#" role="menuitem">Help Center</a>
+            <a href="#" role="menuitem">Changelog</a>
+            <a href="#" role="menuitem">Community forums</a>
+            <a href="#" role="menuitem">Hire a Shopify Partner</a>
+            <a href="#" role="menuitem">Keyboard shortcuts</a>
             <div class="skeleton horizonRol"></div>
-            <a href="#" class="skeleton profileBox">
+            <a href="#" class="skeleton profileBox" role="menuitem">
               <h4>David Micheal</h4>
               <span class="skeleton emailSpan">davidmicheal@gmail.com</span>
             </a>
-            <a href="#">Manage account</a>
-            <a href="#">Log out</a>
+            <a href="#" role="menuitem">Manage account</a>
+            <a href="#" role="menuitem">Log out</a>
           </div>
         </div>
       </div>
@@ -332,7 +383,7 @@
           <h4 tabindex="0">Setup guide</h4>
           <p>Use this personalized guide to get your store up and running.</p>
           <div class="skeleton progress">
-            <p class="skeleton progress-text" id="counter">0 / 5</p>
+            <p class="skeleton progress-text" id="counter">0 / 5 completed</p>
             <div class="skeleton progressBox">
               <div class="skeleton progress-bar">
                 <div></div>
@@ -760,5 +811,5 @@
       </section>
     </div>
   </body>
-  <script src="/javascript/app.js"></script>
+  <script src="/app.js"></script>
 </html>

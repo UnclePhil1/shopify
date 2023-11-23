@@ -8,52 +8,54 @@ const dropDownNotice = document.querySelector(".noticeBox-dropDown");
 
 // EVENT LISTENER FOR toggleNotice BUTTON
 toggleNotice.addEventListener("click", () => {
+  // Toggle visibility of dropDownNotice and close other dropdowns
   if (
     dropDownNotice.style.display === "" ||
     dropDownNotice.style.display === "none"
   ) {
-    // OPEN dropDownNotice AND CLOSE OTHER DROPDOWNS
     dropDownNotice.style.display = "block";
+    console.log(dropDownNotice);
     dropdownMenu.style.display = "none";
     dropdownMenuMobile.style.display = "none";
   } else {
-    // CLOSE dropDownNotice
+    // Close dropDownNotice
     dropDownNotice.style.display = "none";
   }
 });
 
 // EVENT LISTENER FOR dropdownToggle BUTTON
 dropdownToggle.addEventListener("click", () => {
+  // Toggle visibility of dropdownMenu and close dropDownNotice if open
   if (
     dropdownMenu.style.display === "" ||
     dropdownMenu.style.display === "none"
   ) {
-    // OPEN dropdownMenu AND CLOSE dropDownNotice IF OPEN
     dropdownMenu.style.display = "block";
     dropDownNotice.style.display = "none";
   } else {
-    // CLOSE dropdownMenu
+    // Close dropdownMenu
     dropdownMenu.style.display = "none";
   }
 });
 
 // EVENT LISTENER FOR dropdownMenuphoneToggle BUTTON
 dropdownMenuphoneToggle.addEventListener("click", () => {
+  // Toggle visibility of dropdownMenuMobile and close dropDownNotice if open
   if (
     dropdownMenuMobile.style.display === "" ||
     dropdownMenuMobile.style.display === "none"
   ) {
-    // OPEN dropdownMenuMobile AND CLOSE dropDownNotice IF OPEN
     dropdownMenuMobile.style.display = "block";
     dropDownNotice.style.display = "none";
   } else {
-    // CLOSE dropdownMenuMobile
+    // Close dropdownMenuMobile
     dropdownMenuMobile.style.display = "none";
   }
 });
 
 // EVENT LISTENER TO CLOSE DROPDOWNS WHEN CLICKED OUTSIDE
 window.addEventListener("click", (event) => {
+  // Close all dropdowns if clicked outside
   if (
     !event.target.closest(".dropDown") &&
     !event.target.closest(".dropdown-menu") &&
@@ -62,7 +64,6 @@ window.addEventListener("click", (event) => {
     !event.target.closest(".profileBtn") &&
     !event.target.closest(".notifyButton")
   ) {
-    // CLOSE ALL DROPDOWNS
     dropdownMenu.style.display = "none";
     dropDownNotice.style.display = "none";
     dropdownMenuMobile.style.display = "none";
@@ -75,14 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   accordionButtons.forEach((button) => {
     button.addEventListener("click", function () {
-      // TOGGLE 'active' CLASS AND DISPLAY OF ACCORDION CONTENT
+      // Toggle 'active' class and display of accordion content
       this.classList.toggle("active");
       const content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
+      content.style.display =
+        content.style.display === "block" ? "none" : "block";
     });
   });
 });
@@ -134,6 +132,7 @@ containers.forEach((container) => {
       checkedCount--;
       updateCounter();
     }
+  
   });
 });
 
@@ -153,7 +152,7 @@ function updateProgressBar() {
     (checkedImageContainers / totalImageContainers) * 100;
   progressBar.style.width = `${progressPercentage}%`;
 
-  // ADD/REMOVE 'active' CLASS BASED ON PROGRESS
+  // Add/remove 'active' class based on progress
   if (progressPercentage > 0) {
     progressBar.classList.add("active");
   } else {
@@ -172,12 +171,12 @@ document.querySelectorAll(".imageContainer").forEach((container) => {
       container.classList.add("checked");
     }
 
-    // UPDATE PROGRESS BAR
+    // Update progress bar
     updateProgressBar();
   });
 });
 
-// REMOVE 'skeleton' CLASS FROM ALL ELEMENTS WITH CLASS 'skeleton' ON WINDOW LOAD
+// Remove 'skeleton' class from all elements with class 'skeleton' on window load
 const allSkeleton = document.querySelectorAll(".skeleton");
 window.addEventListener("load", function () {
   allSkeleton.forEach((item) => {
@@ -192,12 +191,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   accordionButtons.forEach((button, index) => {
     button.addEventListener("click", function () {
-      // TOGGLE 'active' CLASS AND DISPLAY OF ACCORDION CONTENT
+      // Toggle 'active' class and display of accordion content
       accordionItems[index].classList.toggle("active");
       const content = this.nextElementSibling;
       content.style.maxHeight = content.style.maxHeight ? null : "400px";
 
-      // CLOSE OTHER ACCORDIONS
+      // Close other accordions
       accordionItems.forEach((item, i) => {
         if (i !== index) {
           item.classList.remove("active");
@@ -208,10 +207,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Handle search
 function handleSearch() {
   window.location.reload();
 }
 
+// Event listener for accordion key down
 function handleAccordionKeyDown(event) {
   // Check if the pressed key is the "Enter" key (key code 13)
   if (event.key === "Enter") {
@@ -220,6 +221,7 @@ function handleAccordionKeyDown(event) {
   }
 }
 
+// Toggle accordion
 function toggleAccordion() {
   // Add your logic to open or close the accordion
   // For example, you can toggle a class on the accordion content
@@ -227,6 +229,7 @@ function toggleAccordion() {
   accordionContent.classList.toggle("open");
 }
 
+// Event listener for label key down
 function handleLabelKeyDown(event) {
   // Check if the pressed key is the "Enter" key (key code 13)
   if (event.key === "Enter") {
@@ -241,6 +244,7 @@ function handleLabelKeyDown(event) {
   }
 }
 
+// Toggle accordion based on associated content
 function toggleAccordion(accordionKeyContent) {
   // Add your logic to open or close the accordion
   // For example, you can toggle a class on the accordion content
@@ -248,8 +252,7 @@ function toggleAccordion(accordionKeyContent) {
   accordionContent.style.maxHeight = "400px";
 }
 
-// HIDE MONTHLY PLAN CONTAINER
-
+// Hide monthly plan container
 document.getElementById("handleHideSvg").addEventListener("click", function () {
   // Get the monthlyPlanContainer element
   var monthlyPlanContainer = document.querySelector(".monthlyPlanContainer");
@@ -262,10 +265,13 @@ document.getElementById("handleHideSvg").addEventListener("click", function () {
   }
 });
 
-document.getElementById('searchInput').addEventListener('keydown', function (event) {
-  // Check if the key pressed is Enter (key code 13)
-  if (event.key === 'Enter') {
+// Event listener for search input key down
+document
+  .getElementById("searchInput")
+  .addEventListener("keydown", function (event) {
+    // Check if the key pressed is Enter (key code 13)
+    if (event.key === "Enter") {
       // Reload the page
       location.reload();
-  }
-});
+    }
+  });
