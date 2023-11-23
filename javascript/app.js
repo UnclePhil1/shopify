@@ -92,7 +92,7 @@ const containers = document.querySelectorAll(".imageContainer");
 const counter = document.getElementById("counter");
 let checkedCount = 0;
 
-containers.forEach(container => {
+containers.forEach((container) => {
   const productImage = container.querySelector(".productImage");
   const spinnerImage = container.querySelector(".spinnerImage");
   const checkmarkImage = container.querySelector(".checkmarkImage");
@@ -209,5 +209,63 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function handleSearch() {
-  window.location.reload()
+  window.location.reload();
 }
+
+function handleAccordionKeyDown(event) {
+  // Check if the pressed key is the "Enter" key (key code 13)
+  if (event.key === "Enter") {
+    // Trigger the accordion to open (you can add your logic here)
+    toggleAccordion();
+  }
+}
+
+function toggleAccordion() {
+  // Add your logic to open or close the accordion
+  // For example, you can toggle a class on the accordion content
+  const accordionContent = document.querySelector(".accordion-content");
+  accordionContent.classList.toggle("open");
+}
+
+function handleLabelKeyDown(event) {
+  // Check if the pressed key is the "Enter" key (key code 13)
+  if (event.key === "Enter") {
+    // Find the associated accordion content by extracting the number from the label's "for" attribute
+    const labelFor = event.target.getAttribute("for");
+    const accordionKeyContent = document.getElementById(
+      `accordionContent${labelFor}`
+    );
+
+    // Trigger the accordion to open (you can add your logic here)
+    toggleAccordion(accordionKeyContent);
+  }
+}
+
+function toggleAccordion(accordionKeyContent) {
+  // Add your logic to open or close the accordion
+  // For example, you can toggle a class on the accordion content
+  accordionKeyContent.classList.toggle("open");
+  accordionContent.style.maxHeight = "400px";
+}
+
+// HIDE MONTHLY PLAN CONTAINER
+
+document.getElementById("handleHideSvg").addEventListener("click", function () {
+  // Get the monthlyPlanContainer element
+  var monthlyPlanContainer = document.querySelector(".monthlyPlanContainer");
+
+  // Toggle the visibility of the container (you can use your CSS class or modify styles directly)
+  if (monthlyPlanContainer.style.display !== "none") {
+    monthlyPlanContainer.style.display = "none";
+  } else {
+    monthlyPlanContainer.style.display = "block";
+  }
+});
+
+document.getElementById('searchInput').addEventListener('keydown', function (event) {
+  // Check if the key pressed is Enter (key code 13)
+  if (event.key === 'Enter') {
+      // Reload the page
+      location.reload();
+  }
+});

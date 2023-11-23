@@ -79,7 +79,7 @@
         </g>
       </svg>
       <!-- SEARCH BAR -->
-      <div class="skeleton searchBar">
+      <div class="skeleton searchBar" tabindex="0">
         <button type="submit" onclick="handleSearch()" class="searchBarBtn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@
             />
           </svg>
         </button>
-        <input type="text" placeholder="Search" />
+        <input type="text" placeholder="Search" id="searchInput"/>
       </div>
       <!-- DROPDOWN FOR NOTIFICATION && USER PROFILE CONTAINER -->
       <div class="skeleton dropDownContainer">
@@ -121,10 +121,10 @@
             </svg>
           </button>
           <!-- NOTIFICATION DROPDOWN -->
-          <div class="skeleton noticeBox-dropDown">
-            <div class="skeleton alertBox">
+          <div class="skeleton noticeBox-dropDown" tabindex="0">
+            <div class="skeleton alertBox" t>
               <p>Alerts</p>
-              <span>
+              <span class="alertSvgIcons" tabindex="0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -166,7 +166,7 @@
                 </svg>
               </span>
             </div>
-            <div class="skeleton alertText">
+            <div class="skeleton alertText" tabindex="0">
               Alerts about your store and account will show here
             </div>
           </div>
@@ -179,7 +179,7 @@
             <span>DC</span>
           </button>
           <!-- USERS DROPDOWN -->
-          <div class="skeleton dropdown-menu">
+          <div class="skeleton dropdown-menu" tabindex="0">
             <button class="skeleton userInfo">
               <span>DC</span>
               <p>Davii Collections</p>
@@ -201,7 +201,7 @@
               </svg>
             </button>
 
-            <button class="skeleton storesIcon">
+            <button class="skeleton storesIcon" tabindex="0">
               <svg
                 width="30"
                 height="30"
@@ -238,7 +238,7 @@
           <button class="skeleton profileBtn" id="dropdownTogglemobile">
             DC
           </button>
-          <div class="skeleton dropdownMenuMobile">
+          <div class="skeleton dropdownMenuMobile" tabindex="0">
             <button class="skeleton userInfo">
               <span>DC</span>
               <p>Davii Collections</p>
@@ -259,6 +259,7 @@
                 />
               </svg>
             </button>
+
             <button class="skeleton storesIcon">
               <svg
                 width="30"
@@ -297,14 +298,18 @@
     <!-- PLANNING SECTION -->
     <div class="skeleton container">
       <section class="skeleton monthlyPlanContainer">
-        <p>Extend your trial for $1/month for 3 months on select plans.</p>
+        <p tabindex="0">
+          Extend your trial for $1/month for 3 months on select plans.
+        </p>
         <button>Select a plan</button>
         <svg
+          tabindex="0"
           width="41"
           height="40"
           viewBox="0 0 21 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          id="handleHideSvg"
         >
           <path
             d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z"
@@ -313,428 +318,449 @@
         </svg>
       </section>
       <!-- ACCORDION SECTION -->
-      <section class="skeleton accordionBox">
-        <!-- ACCORDION INNER CONTAINER -->
-        <div class="skeleton accordionContainer">
-          <!-- ISCHECKED OR BUTTON TO OPEN ACCORDION -->
-          <button class="skeleton accordion-button">
-            <h4>Setup guide</h4>
-            <p>Use this personalized guide to get your store up and running.</p>
-            <div class="skeleton progress">
-              <p class="skeleton progress-text" id="counter">0 / 5</p>
-              <div class="skeleton progressBox">
-                <div class="skeleton progress-bar">
-                  <div></div>
-                  <div class="skeleton backgroundProgress"></div>
-                </div>
+      <section
+        class="skeleton accordionBox"
+        tabindex="0"
+        onkeydown="handleAccordionKeyDown(event)"
+      >
+        <!-- ISCHECKED OR BUTTON TO OPEN ACCORDION -->
+        <button
+          class="skeleton accordion-button"
+          tabindex="0"
+          onkeydown="handleAccordionKeyDown(event)"
+        >
+          <h4 tabindex="0">Setup guide</h4>
+          <p>Use this personalized guide to get your store up and running.</p>
+          <div class="skeleton progress">
+            <p class="skeleton progress-text" id="counter">0 / 5</p>
+            <div class="skeleton progressBox">
+              <div class="skeleton progress-bar">
+                <div></div>
+                <div class="skeleton backgroundProgress"></div>
               </div>
             </div>
-            <span class="skeleton arrow">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 21 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z"
-                  fill="#333"
-                />
-              </svg>
-            </span>
-          </button>
-          <div class="skeleton accordion-content">
-            <ul id="accordion">
-              <li>
-                <label for="first">
-                  <span class="skeleton accordionHeader">
-                    <div class="skeleton imageContainer">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 32 32"
-                        fill="none"
-                        class="skeleton productImage"
-                      >
-                        <circle
-                          cx="16"
-                          cy="16"
-                          r="12"
-                          stroke="#8A8A8A"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-dasharray="4 6"
-                        />
-                      </svg>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 28 28"
-                        fill="none"
-                        class="skeleton spinnerImage"
-                      >
-                        <path
-                          d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
-                          stroke="#303030"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="skeleton checkmarkImage"
-                      >
-                        <circle cx="12" cy="12" r="10" fill="#303030"></circle>
-                        <path
-                          d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
-                          fill="#fff"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h4>Customize your online store</h4>
-                  </span>
-                </label>
-                <input type="radio" name="accordion" id="first" checked />
-                <!-- ACCORDION CONTENT -->
-                <div class="skeleton content">
-                  <div>
-                    <p>
-                      Choose a theme and add your logo, colors, and images to
-                      reflect your brand.
-                      <a href="#">Learn more</a>
-                    </p>
-                    <div>
-                      <button>Customize theme</button>
-                    </div>
-                  </div>
-                  <img
-                    src="https://crushingit.tech/hackathon-assets/customise-store.png"
-                    alt="productImage.png"
-                  />
-                </div>
-              </li>
-              <!-- SECOND ACCORDION -->
-              <li>
-                <label for="second">
-                  <span class="skeleton accordionHeader">
-                    <div class="skeleton imageContainer">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 32 32"
-                        fill="none"
-                        class="skeleton productImage"
-                      >
-                        <circle
-                          cx="16"
-                          cy="16"
-                          r="12"
-                          stroke="#8A8A8A"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-dasharray="4 6"
-                        />
-                      </svg>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 28 28"
-                        fill="none"
-                        class="skeleton spinnerImage"
-                      >
-                        <path
-                          d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
-                          stroke="#303030"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="skeleton checkmarkImage"
-                      >
-                        <circle cx="12" cy="12" r="10" fill="#303030"></circle>
-                        <path
-                          d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
-                          fill="#fff"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h4>Add your first product</h4>
-                  </span>
-                </label>
-                <input type="radio" name="accordion" id="second" checked />
-                <div class="skeleton content">
-                  <div>
-                    <p>
-                      Write a description, add photos, and set pricing for the
-                      products you plan to sell. Learn more
-                      <a href="#">Learn more</a>
-                    </p>
-                    <div>
-                      <button>Add product</button>
-                      <button>Import product</button>
-                    </div>
-                  </div>
-                  <img
-                    src="https://crushingit.tech/hackathon-assets/product.png"
-                    alt="productImage.png"
-                  />
-                </div>
-              </li>
-              <!-- THRID ACCORDION -->
-              <li>
-                <label for="third">
-                  <span class="skeleton accordionHeader">
-                    <div class="skeleton imageContainer">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 32 32"
-                        fill="none"
-                        class="skeleton productImage"
-                      >
-                        <circle
-                          cx="16"
-                          cy="16"
-                          r="12"
-                          stroke="#8A8A8A"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-dasharray="4 6"
-                        />
-                      </svg>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 28 28"
-                        fill="none"
-                        class="skeleton spinnerImage"
-                      >
-                        <path
-                          d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
-                          stroke="#303030"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="skeleton checkmarkImage"
-                      >
-                        <circle cx="12" cy="12" r="10" fill="#303030"></circle>
-                        <path
-                          d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
-                          fill="#fff"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h4>Add a custom domain</h4>
-                  </span>
-                </label>
-                <input type="radio" name="accordion" id="third" checked />
-                <div class="skeleton content">
-                  <div>
-                    <p>
-                      Your current domain is 222219.myshopify.com but you can
-                      add a custom domain to help customers find your online
-                      store.
-                      <a href="#">Learn more</a>
-                    </p>
-                    <div>
-                      <button>Add domain</button>
-                    </div>
-                  </div>
-                  <img
-                    src="https://crushingit.tech/hackathon-assets/website.png"
-                    alt="productImage.png"
-                  />
-                </div>
-              </li>
-              <!-- FORTH ACCORDION -->
-              <li>
-                <label for="forth">
-                  <span class="skeleton accordionHeader">
-                    <div class="skeleton imageContainer">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 32 32"
-                        fill="none"
-                        class="skeleton productImage"
-                      >
-                        <circle
-                          cx="16"
-                          cy="16"
-                          r="12"
-                          stroke="#8A8A8A"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-dasharray="4 6"
-                        />
-                      </svg>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 28 28"
-                        fill="none"
-                        class="skeleton spinnerImage"
-                      >
-                        <path
-                          d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
-                          stroke="#303030"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="skeleton checkmarkImage"
-                      >
-                        <circle cx="12" cy="12" r="10" fill="#303030"></circle>
-                        <path
-                          d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
-                          fill="#fff"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h4>Name your store</h4>
-                  </span>
-                </label>
-                <input type="radio" name="accordion" id="forth" checked />
-                <div class="skeleton content">
-                  <div>
-                    <p>
-                      Your temporary store name is currently Davii collections.
-                      The store name appears in your admin and your online
-                      store.
-                      <a href="#">Learn more</a>
-                    </p>
-                    <div>
-                      <button>Name store</button>
-                    </div>
-                  </div>
-                  <img
-                    src="https://crushingit.tech/hackathon-assets/name-store.png"
-                    alt="productImage.png"
-                  />
-                </div>
-              </li>
-
-              <!-- FIFITH ACCORDION -->
-              <li>
-                <label for="fifth">
-                  <span class="skeleton accordionHeader">
-                    <div class="skeleton imageContainer">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 32 32"
-                        fill="none"
-                        class="skeleton productImage"
-                      >
-                        <circle
-                          cx="16"
-                          cy="16"
-                          r="12"
-                          stroke="#8A8A8A"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-dasharray="4 6"
-                        />
-                      </svg>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 28 28"
-                        fill="none"
-                        class="skeleton spinnerImage"
-                      >
-                        <path
-                          d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
-                          stroke="#303030"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="skeleton checkmarkImage"
-                      >
-                        <circle cx="12" cy="12" r="10" fill="#303030"></circle>
-                        <path
-                          d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
-                          fill="#fff"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h4>Set up a payment provider</h4>
-                  </span>
-                </label>
-                <input type="radio" name="accordion" id="fifth" checked />
-                <div class="skeleton content">
-                  <div>
-                    <p>
-                      Choose a payment provider to start accepting payments.
-                      You’ll need to create an account with the payment provider
-                      and set it up with your Shopify store.
-                      <a href="#">Learn more</a>
-                    </p>
-                    <div>
-                      <button>Set up Payment</button>
-                    </div>
-                  </div>
-                  <img
-                    src="https://crushingit.tech/hackathon-assets/payment.png"
-                    alt="productImage.png"
-                  />
-                </div>
-              </li>
-            </ul>
           </div>
+          <span class="skeleton arrow">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 21 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z"
+                fill="#333"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="skeleton accordion-content"
+          tabindex="0"
+          onkeydown="handleAccordionKeyDown(event)"
+        >
+          <ul id="accordion">
+            <li>
+              <label
+                for="first"
+                tabindex="0"
+                onkeydown="handleLabelKeyDown(event)"
+              >
+                <span class="skeleton accordionHeader">
+                  <div class="skeleton imageContainer" tabindex="0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      class="skeleton productImage"
+                    >
+                      <circle
+                        cx="16"
+                        cy="16"
+                        r="12"
+                        stroke="#8A8A8A"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-dasharray="4 6"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                      class="skeleton spinnerImage"
+                    >
+                      <path
+                        d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                        stroke="#303030"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="skeleton checkmarkImage"
+                    >
+                      <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                      <path
+                        d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                        fill="#fff"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h4 tabindex="0">Customize your online store</h4>
+                </span>
+              </label>
+              <input type="radio" name="accordion" id="first" checked />
+              <!-- ACCORDION CONTENT -->
+              <div class="skeleton content" id="accordionContent1">
+                <div>
+                  <p tabindex="0">
+                    Choose a theme and add your logo, colors, and images to
+                    reflect your brand.
+                    <a href="#">Learn more</a>
+                  </p>
+                  <div>
+                    <button>Customize theme</button>
+                  </div>
+                </div>
+                <img
+                  tabindex="0"
+                  src="https://crushingit.tech/hackathon-assets/customise-store.png"
+                  alt="Select a theme and add your logo, colors, and images to reflect your brand image."
+                />
+              </div>
+            </li>
+            <!-- SECOND ACCORDION -->
+            <li>
+              <label for="second">
+                <span class="skeleton accordionHeader">
+                  <div class="skeleton imageContainer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      class="skeleton productImage"
+                    >
+                      <circle
+                        cx="16"
+                        cy="16"
+                        r="12"
+                        stroke="#8A8A8A"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-dasharray="4 6"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                      class="skeleton spinnerImage"
+                    >
+                      <path
+                        d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                        stroke="#303030"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="skeleton checkmarkImage"
+                    >
+                      <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                      <path
+                        d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                        fill="#fff"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h4 tabindex="0">Add your first product</h4>
+                </span>
+              </label>
+              <input type="radio" name="accordion" id="second" checked />
+              <div class="skeleton content">
+                <div>
+                  <p tabindex="0">
+                    Write a description, add photos, and set pricing for the
+                    products you plan to sell. Learn more
+                    <a href="#">Learn more</a>
+                  </p>
+                  <div>
+                    <button>Add product</button>
+                    <button>Import product</button>
+                  </div>
+                </div>
+                <img
+                  tabindex="0"
+                  src="https://crushingit.tech/hackathon-assets/product.png"
+                  alt="Write a description, add photos, and set pricing for the
+                    products you plan to sell image."
+                />
+              </div>
+            </li>
+            <!-- THRID ACCORDION -->
+            <li>
+              <label for="third">
+                <span class="skeleton accordionHeader">
+                  <div class="skeleton imageContainer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      class="skeleton productImage"
+                    >
+                      <circle
+                        cx="16"
+                        cy="16"
+                        r="12"
+                        stroke="#8A8A8A"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-dasharray="4 6"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                      class="skeleton spinnerImage"
+                    >
+                      <path
+                        d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                        stroke="#303030"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="skeleton checkmarkImage"
+                    >
+                      <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                      <path
+                        d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                        fill="#fff"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h4 tabindex="0">Add a custom domain</h4>
+                </span>
+              </label>
+              <input type="radio" name="accordion" id="third" checked />
+              <div class="skeleton content">
+                <div>
+                  <p tabindex="0">
+                    Your current domain is 222219.myshopify.com but you can add
+                    a custom domain to help customers find your online store.
+                    <a href="#">Learn more</a>
+                  </p>
+                  <div>
+                    <button>Add domain</button>
+                  </div>
+                </div>
+                <img
+                  tabindex="0"
+                  src="https://crushingit.tech/hackathon-assets/website.png"
+                  alt="Your current domain is 222219.myshopify.com but you can
+                    add a custom domain to help customers find your online
+                    store image"
+                />
+              </div>
+            </li>
+            <!-- FORTH ACCORDION -->
+            <li>
+              <label for="forth">
+                <span class="skeleton accordionHeader">
+                  <div class="skeleton imageContainer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      class="skeleton productImage"
+                    >
+                      <circle
+                        cx="16"
+                        cy="16"
+                        r="12"
+                        stroke="#8A8A8A"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-dasharray="4 6"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                      class="skeleton spinnerImage"
+                    >
+                      <path
+                        d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                        stroke="#303030"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="skeleton checkmarkImage"
+                    >
+                      <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                      <path
+                        d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                        fill="#fff"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h4 tabindex="0">Name your store</h4>
+                </span>
+              </label>
+              <input type="radio" name="accordion" id="forth" checked />
+              <div class="skeleton content">
+                <div>
+                  <p tabindex="0">
+                    Your temporary store name is currently Davii collections.
+                    The store name appears in your admin and your online store.
+                    <a href="#">Learn more</a>
+                  </p>
+                  <div>
+                    <button>Name store</button>
+                  </div>
+                </div>
+                <img
+                  tabindex="0"
+                  src="https://crushingit.tech/hackathon-assets/name-store.png"
+                  alt=" Your temporary store name is currently Davii collections.
+                    The store name appears in your admin and your online
+                    store, image"
+                />
+              </div>
+            </li>
+
+            <!-- FIFITH ACCORDION -->
+            <li>
+              <label for="fifth">
+                <span class="skeleton accordionHeader">
+                  <div class="skeleton imageContainer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      class="skeleton productImage"
+                    >
+                      <circle
+                        cx="16"
+                        cy="16"
+                        r="12"
+                        stroke="#8A8A8A"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-dasharray="4 6"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                      class="skeleton spinnerImage"
+                    >
+                      <path
+                        d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                        stroke="#303030"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="skeleton checkmarkImage"
+                    >
+                      <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                      <path
+                        d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                        fill="#fff"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h4 tabindex="0">Set up a payment provider</h4>
+                </span>
+              </label>
+              <input type="radio" name="accordion" id="fifth" checked />
+              <div class="skeleton content">
+                <div>
+                  <p tabindex="0">
+                    Choose a payment provider to start accepting payments.
+                    You’ll need to create an account with the payment provider
+                    and set it up with your Shopify store.
+                    <a href="#">Learn more</a>
+                  </p>
+                  <div>
+                    <button>Set up Payment</button>
+                  </div>
+                </div>
+                <img
+                  tabindex="0"
+                  src="https://crushingit.tech/hackathon-assets/payment.png"
+                  alt="Choose a payment provider to start accepting payments image."
+                />
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
     </div>
