@@ -203,6 +203,48 @@ document.querySelectorAll(".imageContainer").forEach((container) => {
   });
 });
 
+// Function to increase and reduce the complete count value.
+document.addEventListener("DOMContentLoaded", function () {
+  // Get all image containers (checkboxes) within the accordion
+  var imageContainers = document.querySelectorAll(".imageContainer");
+
+  // Get the progress counter element
+  var progressCounter = document.getElementById("counter");
+
+  // Initialize the counter value to the total number of imageContainers
+  var counterValue = 0;
+
+  // Function to update the progress counter
+  function updateCounter() {
+    progressCounter.textContent = counterValue;
+  }
+
+  // Function to handle checkbox changes
+  function handleCheckboxChange() {
+    // Check if the checkbox is checked
+    if (this.getAttribute("aria-checked") === "false") {
+      // Decrease counterValue if checkbox was checked and is now unchecked
+      counterValue++;
+      console.log(counterValue);
+    } else {
+      // Increase counterValue if checkbox was unchecked and is now checked
+      counterValue--;
+      console.log(`This is else:${counterValue}`);
+    }
+
+    // Ensure counterValue doesn't go above 5
+    counterValue = Math.min(5, counterValue);
+
+    // Update the progress counter
+    updateCounter();
+  }
+
+  // Attach the handleCheckboxChange function to each image container
+  imageContainers.forEach(function (container) {
+    container.addEventListener("click", handleCheckboxChange);
+  });
+});
+
 // Remove 'skeleton' class from all elements with class 'skeleton' on window load
 const allSkeleton = document.querySelectorAll(".skeleton");
 window.addEventListener("load", function () {
