@@ -12,6 +12,10 @@
     />
   </head>
   <body>
+    <div id="liveRegion" aria-live="assertive" aria-atomic="true" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); border: 0; padding: 0; margin: -1px; position: absolute; white-space: nowrap;">
+      <!-- Content will be dynamically added here -->
+    </div>
+  
     <!-- NAVBAR SECTION -->
 
     <nav class="skeleton navbar">
@@ -122,7 +126,7 @@
             id="toggleNotice"
             aria-haspopup="true"
             aria-expanded="false"
-            aria-controls="notification-button"
+            aria-controls="notification-dropdown"
           >
             <svg
               width="41"
@@ -144,7 +148,7 @@
           <div
             class="skeleton noticeBox-dropDown"
             tabindex="0"
-            id="notification-button"
+            id="notification-dropdown"
             aria-labelledby="toggleNotice"
           >
             <div class="skeleton alertBox" t>
@@ -349,9 +353,7 @@
     <!-- PLANNING SECTION -->
     <div class="skeleton container">
       <section class="skeleton monthlyPlanContainer">
-        <p tabindex="0">
-          Extend your trial for $1/month for 3 months on select plans.
-        </p>
+        <p>Extend your trial for $1/month for 3 months on select plans.</p>
         <button>Select a plan</button>
         <svg
           tabindex="0"
@@ -372,12 +374,16 @@
       <section
         class="skeleton accordionBox"
         tabindex="0"
+        role="region"
+        aria-label="Setup Guide Accordion"
         onkeydown="handleAccordionKeyDown(event)"
       >
         <!-- ISCHECKED OR BUTTON TO OPEN ACCORDION -->
         <button
           class="skeleton accordion-button"
           tabindex="0"
+          aria-expanded="true"
+          aria-controls="accordionContent1"
           onkeydown="handleAccordionKeyDown(event)"
         >
           <h4 tabindex="0">Setup guide</h4>
@@ -411,6 +417,8 @@
         <div
           class="skeleton accordion-content"
           tabindex="0"
+          id="accordionContent1"
+          aria-labelledby="accordionButton1"
           onkeydown="handleAccordionKeyDown(event)"
         >
           <ul id="accordion">
@@ -421,7 +429,7 @@
                 onkeydown="handleLabelKeyDown(event)"
               >
                 <span class="skeleton accordionHeader">
-                  <div class="skeleton imageContainer" tabindex="0">
+                  <div class="skeleton imageContainer" tabindex="0" role="checkbox" aria-checked="false">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -499,7 +507,7 @@
             <li>
               <label for="second">
                 <span class="skeleton accordionHeader">
-                  <div class="skeleton imageContainer">
+                  <div class="skeleton imageContainer" tabindex="0" role="checkbox" aria-checked="false">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -554,7 +562,7 @@
                 </span>
               </label>
               <input type="radio" name="accordion" id="second" checked />
-              <div class="skeleton content">
+              <div class="skeleton content" id="accordionContent2">
                 <div>
                   <p tabindex="0">
                     Write a description, add photos, and set pricing for the
@@ -577,7 +585,7 @@
             <li>
               <label for="third">
                 <span class="skeleton accordionHeader">
-                  <div class="skeleton imageContainer">
+                  <div class="skeleton imageContainer" tabindex="0" role="checkbox" aria-checked="false">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -632,7 +640,7 @@
                 </span>
               </label>
               <input type="radio" name="accordion" id="third" checked />
-              <div class="skeleton content">
+              <div class="skeleton content" id="accordionContent3">
                 <div>
                   <p tabindex="0">
                     Your current domain is 222219.myshopify.com but you can add
@@ -654,7 +662,7 @@
             <li>
               <label for="forth">
                 <span class="skeleton accordionHeader">
-                  <div class="skeleton imageContainer">
+                  <div class="skeleton imageContainer" tabindex="0" role="checkbox" aria-checked="false">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -709,7 +717,7 @@
                 </span>
               </label>
               <input type="radio" name="accordion" id="forth" checked />
-              <div class="skeleton content">
+              <div class="skeleton content" id="accordionContent4">
                 <div>
                   <p tabindex="0">
                     Your temporary store name is currently Davii collections.
@@ -732,7 +740,7 @@
             <li>
               <label for="fifth">
                 <span class="skeleton accordionHeader">
-                  <div class="skeleton imageContainer">
+                  <div class="skeleton imageContainer" tabindex="0" role="checkbox" aria-checked="false">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -787,7 +795,7 @@
                 </span>
               </label>
               <input type="radio" name="accordion" id="fifth" checked />
-              <div class="skeleton content">
+              <div class="skeleton content" id="accordionContent4">
                 <div>
                   <p tabindex="0">
                     Choose a payment provider to start accepting payments.

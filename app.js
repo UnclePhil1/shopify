@@ -7,49 +7,77 @@ const toggleNotice = document.getElementById("toggleNotice");
 const dropDownNotice = document.querySelector(".noticeBox-dropDown");
 
 // EVENT LISTENER FOR toggleNotice BUTTON
-toggleNotice.addEventListener("click", () => {
-  // Toggle visibility of dropDownNotice and close other dropdowns
-  if (
-    dropDownNotice.style.display === "" ||
-    dropDownNotice.style.display === "none"
-  ) {
-    dropDownNotice.style.display = "block";
-    console.log(dropDownNotice);
+// Define the closeDropdownOnEsc function outside the click event listener
+function closeDropdownOnEsc(event) {
+  if (event.key === "Escape") {
+    dropDownNotice.style.display = "none";
     dropdownMenu.style.display = "none";
     dropdownMenuMobile.style.display = "none";
+  }
+}
+
+// Add event listener for the click event on toggleNotice
+toggleNotice.addEventListener("click", () => {
+  // Toggle visibility of dropDownNotice and close other dropdowns
+
+  if (dropDownNotice.style.display === "none") {
+    // Open dropDownNotice
+    dropDownNotice.style.display = "block";
+    console.log(dropDownNotice);
+
+    // Close other dropdowns if needed
+    dropdownMenu.style.display = "none";
+    dropdownMenuMobile.style.display = "none";
+
+    // Add the event listener for the "Esc" key
+    document.addEventListener("keydown", closeDropdownOnEsc);
   } else {
     // Close dropDownNotice
     dropDownNotice.style.display = "none";
+
+    // Remove the event listener for the "Esc" key
+    document.removeEventListener("keydown", closeDropdownOnEsc);
   }
 });
 
-// EVENT LISTENER FOR dropdownToggle BUTTON
+// Event listener for dropdownToggle
 dropdownToggle.addEventListener("click", () => {
   // Toggle visibility of dropdownMenu and close dropDownNotice if open
-  if (
-    dropdownMenu.style.display === "" ||
-    dropdownMenu.style.display === "none"
-  ) {
+  if (dropdownMenu.style.display === "none") {
     dropdownMenu.style.display = "block";
+
+    // Close other dropdowns if needed
     dropDownNotice.style.display = "none";
+
+    // Add the event listener for the "Esc" key
+    document.addEventListener("keydown", closeDropdownOnEsc);
   } else {
     // Close dropdownMenu
     dropdownMenu.style.display = "none";
+
+    // Remove the event listener for the "Esc" key
+    document.removeEventListener("keydown", closeDropdownOnEsc);
   }
 });
 
 // EVENT LISTENER FOR dropdownMenuphoneToggle BUTTON
 dropdownMenuphoneToggle.addEventListener("click", () => {
   // Toggle visibility of dropdownMenuMobile and close dropDownNotice if open
-  if (
-    dropdownMenuMobile.style.display === "" ||
-    dropdownMenuMobile.style.display === "none"
-  ) {
+  if (dropdownMenuMobile.style.display === "none") {
     dropdownMenuMobile.style.display = "block";
+
+    // Close other dropdowns if needed
     dropDownNotice.style.display = "none";
+    dropdownMenu.style.display = "none";
+
+    // Add the event listener for the "Esc" key
+    document.addEventListener("keydown", closeDropdownOnEsc);
   } else {
     // Close dropdownMenuMobile
     dropdownMenuMobile.style.display = "none";
+
+    // Remove the event listener for the "Esc" key
+    document.removeEventListener("keydown", closeDropdownOnEsc);
   }
 });
 
@@ -132,7 +160,6 @@ containers.forEach((container) => {
       checkedCount--;
       updateCounter();
     }
-  
   });
 });
 
@@ -275,3 +302,15 @@ document
       location.reload();
     }
   });
+
+// Function to announce the website description
+function announceWebsite() {
+  var websiteDescription =
+    "Welcome to your Shopify Merchant Admin Dashboard. Manage your store, products, and settings with ease.";
+  // Use ARIA live region to announce the description
+  var liveRegion = document.getElementById("liveRegion");
+  liveRegion.textContent = websiteDescription;
+}
+
+// Trigger the function when the page loads
+window.addEventListener("load", announceWebsite);
