@@ -168,6 +168,8 @@ containers.forEach((container) => {
 
       // Update the counter
       checkedCount--;
+
+      counterValue = Math.min(5, counterValue);
       updateCounter();
     }
   });
