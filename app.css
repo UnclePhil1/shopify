@@ -119,11 +119,9 @@ button {
 }
 
 .search-bar:focus,
-.search-bar:focus-visible
- {
+.search-bar:focus-visible {
   outline: 2px solid var(--white);
 }
-
 
 .search-bar > .search-barBtn > svg {
   color: var(--white);
@@ -141,15 +139,14 @@ button {
   color: var(--background);
 }
 
-
-.search-barBtn{
+.search-barBtn {
   background: none;
   position: relative;
   cursor: pointer;
   border-radius: 10px;
 }
 
-.search-barBtn:focus-visible{
+.search-barBtn:focus-visible {
   border: 1px solid var(--white);
   outline: 1px solid var(--white);
 }
@@ -175,7 +172,7 @@ button {
   padding: 1px;
 }
 
-.notifyButton:focus{
+.notifyButton:focus {
   outline: 1px solid var(--focused);
 }
 
@@ -324,8 +321,7 @@ button {
   font-size: var(--font-size-medium);
 }
 .monthlyPlanContainer > p:focus-visible,
-.monthlyPlanContainer > svg:focus-visible
-{
+.monthlyPlanContainer > svg:focus-visible {
   outline: 2px solid var(--dark);
 }
 
@@ -395,7 +391,7 @@ button {
   border-radius: 10px;
 }
 
-.dropdownMenuMobile:focus{
+.dropdownMenuMobile:focus {
   outline: 2px solid var(--dark);
 }
 
@@ -422,11 +418,11 @@ button {
 }
 
 .dropdown-menu:focus,
-.noticeBox-dropDown:focus{
+.noticeBox-dropDown:focus {
   outline: 2px solid var(--gray-fifty);
 }
 
-.alertSvgIcons:focus{
+.alertSvgIcons:focus {
   outline: 1px solid var(--gray-fifty);
   border: 1px solid var(--gray-fifty);
 }
@@ -484,13 +480,11 @@ button {
   cursor: pointer;
 }
 
-.storesIcon:focus
-{
+.storesIcon:focus {
   background: var(--background);
   cursor: pointer;
 }
-.storesIcon:focus-visible
-{
+.storesIcon:focus-visible {
   outline: 2px solid var(--focused);
   background: var(--background);
   cursor: pointer;
@@ -500,7 +494,7 @@ button {
   background: transparent;
 }
 
-.storesIcon a:focus{
+.storesIcon a:focus {
   outline: 2px solid var(--dar);
   border: none;
 }
@@ -550,7 +544,7 @@ button {
   color: var(--gray-fifty);
   text-align: center;
 }
-.alertText:focus{
+.alertText:focus {
   outline: 1px solid var(--dark);
   border: 1px solid var(--dark);
 }
@@ -567,7 +561,7 @@ button {
   background-color: var(--white);
 }
 
-.accordionBox:focus-visible{
+.accordionBox:focus-visible {
   outline: 2px solid var(--dark);
 }
 
@@ -582,7 +576,7 @@ button {
   padding: 0;
 }
 
-#accordion li label:focus-visible{
+#accordion li label:focus-visible {
   outline: 2px solid var(--dark);
 }
 
@@ -619,8 +613,7 @@ button {
   font-size: var(--font-size-small);
 }
 .content img:focus-visible,
-.content div p:focus-visible
-{
+.content div p:focus-visible {
   outline: 2px solid var(--dark);
 }
 
@@ -754,7 +747,7 @@ button {
   padding-bottom: 16px;
 }
 
-.accordion-button:focus-visible{
+.accordion-button:focus-visible {
   outline: 2px solid var(--dark);
 }
 
@@ -795,14 +788,13 @@ button {
   display: flex;
 }
 
-.arrow:focus-visible{
+.arrow:focus-visible {
   outline: 2px solid var(--dark);
 }
 
 .accordion-button.active .arrow {
   transform: rotate(180deg);
   background: var(--white);
-
 }
 
 /* IMAGE CONTAINER STYLES */
@@ -824,7 +816,7 @@ button {
   transition: opacity 0.2s ease-in-out;
 }
 
-.svgCheckBox h4{
+.svgCheckBox h4 {
   font-size: var(--font-size-small);
 }
 
@@ -834,11 +826,11 @@ button {
 
 .svgCheckBox .spinnerImage {
   display: none;
-  animation: spin .6s linear infinite;
+  animation: spin 0.6s linear infinite;
 }
 
 .svgCheckBox .checkmarkImage {
-  animation: spinCheckSvg .2s linear;
+  animation: spinCheckSvg 0.2s linear;
   display: none;
 }
 
@@ -869,7 +861,7 @@ button {
   position: relative;
 }
 
-.progress-text{
+.progress-text {
   padding: 0;
   margin: 0;
   float: right;
@@ -915,11 +907,10 @@ button {
   }
 }
 
-
 @media only screen and (max-width: 425px) {
-.container{
-  padding: 15px 0 30px 0;
-}
+  .container {
+    padding: 15px 0 30px 0;
+  }
 
   .logo {
     width: 70px;
@@ -952,7 +943,6 @@ button {
     justify-content: flex-start;
     align-items: flex-start;
     border-radius: 0;
-
   }
 
   .monthlyPlanContainer > p {
@@ -1000,7 +990,6 @@ button {
   .arrow {
     top: 15%;
   }
-
 }
 
 @media only screen and (min-width: 426px) and (max-width: 768px) {
@@ -1016,6 +1005,9 @@ button {
 }
 
 @media only screen and (max-width: 768px) {
+  .dropdownMenuMobile {
+  }
+
   .navbar {
     display: flex;
     gap: 4px;
@@ -1050,6 +1042,11 @@ button {
     font-size: var(--font-size-small);
     border: none;
     cursor: pointer;
+    color: green;
+  }
+
+  .profileBtn:focus-visible{
+    outline: 2px solid var(--dark);
   }
 
   .search-bar {
@@ -1061,7 +1058,7 @@ button {
     position: relative;
   }
 
-  .search-barBtn{
+  .search-barBtn {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -1093,7 +1090,13 @@ button {
   .notifyButton {
     background-color: transparent;
     border: 2px solid transparent;
-   
+    outline: none;
+  }
+
+  .notifyButton:focus,
+  .notifyButton:focus-visible
+  {
+    outline: none;
   }
 
   .dropDown-container {
@@ -1125,7 +1128,7 @@ button {
   }
 }
 @media screen and (min-width: 426px) and (max-width: 768px) {
-  .search-bar input{
+  .search-bar input {
     width: calc(100% + 100% + 100% + 60%);
   }
 }
