@@ -199,7 +199,7 @@ button {
 
 /* USER INFO STYLES */
 .userInfo {
-  width: 98%;
+  width: 95%;
   display: flex;
   padding: 2px 2px 2px 8px;
   align-items: center;
@@ -272,6 +272,7 @@ button {
 
 .userInfo p {
   font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-medium);
 }
 
 /* SPOTIFY LOGO STYLES */
@@ -328,7 +329,7 @@ button {
   outline: 2px solid var(--dark);
 }
 
-.monthlyPlanContainer > button {
+.monthlyPlanContainer > a {
   display: flex;
   padding: 6px 12px;
   align-items: center;
@@ -341,17 +342,20 @@ button {
   font-size: var(--font-size-medium);
   font-weight: var(--font-weight-regular);
   cursor: pointer;
+  color: #000000;
+  text-decoration: none;
+  margin-left: 12px;
 }
 
-.monthlyPlanContainer > button:hover {
+.monthlyPlanContainer > a:hover {
   background-color: var(--background);
 }
 
-.monthlyPlanContainer > button:focus {
+.monthlyPlanContainer > a:focus {
   background-color: var(--background);
 }
 
-.monthlyPlanContainer > button:focus-visible {
+.monthlyPlanContainer > a:focus-visible {
   outline: 2px solid var(--focused);
   background-color: var(--white);
 }
@@ -591,8 +595,9 @@ button {
 
 .accordionHeader h4 {
   padding-left: 8px;
-  margin: 0;
+  margin: auto 0;
   font-size: var(--font-size-medium);
+  text-align: center;
 }
 .accordionHeader h4:focus-visible {
   outline: 2px solid var(--dark);
@@ -708,6 +713,7 @@ button {
   font-weight: var(--font-weight-regular);
   cursor: pointer;
   color: var(--gray-threeHundred);
+  padding: 4px;
 }
 
 /* ACCORDION INPUT STYLES */
@@ -782,21 +788,34 @@ button {
   right: 10px;
   transform: translateY(-10%);
   transition: transform 0.3s;
+  padding: 2px;
+  background: var(--background);
+  border-radius: 5px;
+  align-items: center;
+  display: flex;
+}
+
+.arrow:focus-visible{
+  outline: 2px solid var(--dark);
 }
 
 .accordion-button.active .arrow {
   transform: rotate(180deg);
+  background: var(--white);
+
 }
 
 /* IMAGE CONTAINER STYLES */
-.imageContainer {
+.svgCheckBox {
   position: relative;
   width: 20px;
   height: 20px;
   cursor: pointer;
+  border: none;
+  background: none;
 }
 
-.imageContainer svg {
+.svgCheckBox svg {
   position: absolute;
   top: 0;
   left: 0;
@@ -805,20 +824,21 @@ button {
   transition: opacity 0.2s ease-in-out;
 }
 
-.imageContainer h4{
+.svgCheckBox h4{
   font-size: var(--font-size-small);
 }
 
-.imageContainer .productImage {
+.svgCheckBox .productImage {
   opacity: 1; /* Display the product image initially */
 }
 
-.imageContainer .spinnerImage {
+.svgCheckBox .spinnerImage {
   display: none;
-  animation: spin 2s linear infinite;
+  animation: spin .6s linear infinite;
 }
 
-.imageContainer .checkmarkImage {
+.svgCheckBox .checkmarkImage {
+  animation: spinCheckSvg .2s linear;
   display: none;
 }
 
@@ -844,6 +864,13 @@ button {
   border-radius: 10px;
   background-color: var(--background);
   position: relative;
+}
+
+.progress-text{
+  padding: 0;
+  margin: 0;
+  float: right;
+  text-align: end;
 }
 
 .backgroundProgress {
@@ -876,6 +903,16 @@ button {
     transform: rotate(360deg);
   }
 }
+@keyframes spinCheckSvg {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 @media only screen and (max-width: 425px) {
 .container{
   padding: 15px 0;

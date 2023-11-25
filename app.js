@@ -113,8 +113,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// PROCESS EACH IMAGE CONTAINER
-const containers = document.querySelectorAll(".imageContainer");
+function toggleAccordion(accordionId) {
+  var accordionContent = document.getElementById(accordionId);
+  if (accordionContent.style.maxHeight === "0px") {
+  accordionContent.style.maxHeight = "400px";
+
+  } else {
+    accordionContent.style.maxHeight = "0px"
+  }
+}
+
+// PROCESS EACH SVG CHECK CONTAINER
+const containers = document.querySelectorAll(".svgCheckBox");
 const counter = document.getElementById("counter");
 let checkedCount = 0;
 
@@ -125,10 +135,10 @@ containers.forEach((container) => {
   const accordionContent = container.parentElement.querySelector(".content");
   let isChecked = false;
 
-  // EVENT LISTENER FOR CLICK ON IMAGE CONTAINER
+  // EVENT LISTENER FOR CLICK ON SVG CHECK CONTAINER
   container.addEventListener("click", () => {
     if (!isChecked) {
-      // IF THE IMAGE IS NOT CHECKED
+      // IF THE SVG IS NOT CHECKED
       productImage.style.opacity = 0;
       spinnerImage.style.opacity = 1;
       spinnerImage.style.display = "block";
@@ -167,16 +177,16 @@ function updateCounter() {
   counter.textContent = `${checkedCount} / 5`;
 }
 
-// TRACK THE NUMBER OF CHECKED IMAGE CONTAINERS AND UPDATE PROGRESS BAR
-const totalImageContainers =
-  document.querySelectorAll(".imageContainer").length;
-let checkedImageContainers = 0;
+// TRACK THE NUMBER OF CHECKED SVG CHECK CONTAINERS AND UPDATE PROGRESS BAR
+const totalSvgCheckBoxs =
+  document.querySelectorAll(".svgCheckBox").length;
+let checkedSvgCheckBoxs = 0;
 const progressBar = document.querySelector(".progress-bar");
 
 // FUNCTION TO UPDATE PROGRESS BAR
 function updateProgressBar() {
   const progressPercentage =
-    (checkedImageContainers / totalImageContainers) * 100;
+    (checkedSvgCheckBoxs / totalSvgCheckBoxs) * 100;
   progressBar.style.width = `${progressPercentage}%`;
 
   // Add/remove 'active' class based on progress
@@ -187,14 +197,14 @@ function updateProgressBar() {
   }
 }
 
-// EVENT LISTENER FOR CLICK ON IMAGE CONTAINER
-document.querySelectorAll(".imageContainer").forEach((container) => {
+// EVENT LISTENER FOR CLICK ON SVG CHECK CONTAINER
+document.querySelectorAll(".svgCheckBox").forEach((container) => {
   container.addEventListener("click", () => {
     if (container.classList.contains("checked")) {
-      checkedImageContainers--;
+      checkedSvgCheckBoxs--;
       container.classList.remove("checked");
     } else {
-      checkedImageContainers++;
+      checkedSvgCheckBoxs++;
       container.classList.add("checked");
     }
 
@@ -205,13 +215,13 @@ document.querySelectorAll(".imageContainer").forEach((container) => {
 
 // Function to increase and reduce the complete count value.
 document.addEventListener("DOMContentLoaded", function () {
-  // Get all image containers (checkboxes) within the accordion
-  var imageContainers = document.querySelectorAll(".imageContainer");
+  // Get all SVG CHECK CONTAINERs (checkboxes) within the accordion
+  var SvgCheckBoxs = document.querySelectorAll(".svgCheckBox");
 
   // Get the progress counter element
   var progressCounter = document.getElementById("counter");
 
-  // Initialize the counter value to the total number of imageContainers
+  // Initialize the counter value to the total number of SvgCheckBoxs
   var counterValue = 0;
 
   // Function to update the progress counter
@@ -239,8 +249,8 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCounter();
   }
 
-  // Attach the handleCheckboxChange function to each image container
-  imageContainers.forEach(function (container) {
+  // Attach the handleCheckboxChange function to each SVG CHECK CONTAINER
+  SvgCheckBoxs.forEach(function (container) {
     container.addEventListener("click", handleCheckboxChange);
   });
 });
@@ -335,15 +345,15 @@ document.getElementById("handleHideSvg").addEventListener("click", function () {
 });
 
 // Event listener for search input key down
-document
-  .getElementById("searchInput")
-  .addEventListener("keydown", function (event) {
-    // Check if the key pressed is Enter (key code 13)
-    if (event.key === "Enter") {
-      // Reload the page
-      location.reload();
-    }
-  });
+// document
+//   .getElementById("searchInput")
+//   .addEventListener("keydown", function (event) {
+//     // Check if the key pressed is Enter (key code 13)
+//     if (event.key === "Enter") {
+//       // Reload the page
+//       location.reload();
+//     }
+//   });
 
 // Function to announce the website description
 function announceWebsite() {
