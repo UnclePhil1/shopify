@@ -116,18 +116,14 @@ document.addEventListener("DOMContentLoaded", function () {
 function toggleAccordion(accordionId) {
   var accordionContent = document.getElementById(accordionId);
   if (accordionContent.style.maxHeight === "0px") {
-  accordionContent.style.maxHeight = "400px";
-
+    accordionContent.style.maxHeight = "400px";
   } else {
-    accordionContent.style.maxHeight = "0px"
+    accordionContent.style.maxHeight = "0px";
   }
 }
 
 // PROCESS EACH SVG CHECK CONTAINER
 const containers = document.querySelectorAll(".svgCheckBox");
-const counter = document.getElementById("counter");
-let checkedCount = 0;
-
 containers.forEach((container) => {
   const productImage = container.querySelector(".productImage");
   const spinnerImage = container.querySelector(".spinnerImage");
@@ -151,10 +147,6 @@ containers.forEach((container) => {
 
         // OPEN THE ACCORDION WHEN CHECKED
         accordionContent.style.maxHeight = "400px";
-
-        // Update the counter
-        checkedCount++;
-        updateCounter();
       }, 1000);
     } else {
       // IF THE IMAGE IS ALREADY CHECKED
@@ -165,30 +157,18 @@ containers.forEach((container) => {
 
       // CLOSE THE ACCORDION WHEN UNCHECKED
       accordionContent.style.maxHeight = "0px";
-
-      // Update the counter
-      checkedCount--;
-
-      counterValue = Math.min(5, counterValue);
-      updateCounter();
     }
   });
 });
 
-function updateCounter() {
-  counter.textContent = `${checkedCount} / 5`;
-}
-
 // TRACK THE NUMBER OF CHECKED SVG CHECK CONTAINERS AND UPDATE PROGRESS BAR
-const totalSvgCheckBoxs =
-  document.querySelectorAll(".svgCheckBox").length;
+const totalSvgCheckBoxs = document.querySelectorAll(".svgCheckBox").length;
 let checkedSvgCheckBoxs = 0;
 const progressBar = document.querySelector(".progress-bar");
 
 // FUNCTION TO UPDATE PROGRESS BAR
 function updateProgressBar() {
-  const progressPercentage =
-    (checkedSvgCheckBoxs / totalSvgCheckBoxs) * 100;
+  const progressPercentage = (checkedSvgCheckBoxs / totalSvgCheckBoxs) * 100;
   progressBar.style.width = `${progressPercentage}%`;
 
   // Add/remove 'active' class based on progress
@@ -216,46 +196,27 @@ document.querySelectorAll(".svgCheckBox").forEach((container) => {
 });
 
 // Function to increase and reduce the complete count value.
-document.addEventListener("DOMContentLoaded", function () {
-  // Get all SVG CHECK CONTAINERs (checkboxes) within the accordion
-  var SvgCheckBoxs = document.querySelectorAll(".svgCheckBox");
+const checkButtons = document.querySelectorAll(".checkButton");
+let counter = 0;
 
-  // Get the progress counter element
-  var progressCounter = document.getElementById("counter");
-
-  // Initialize the counter value to the total number of SvgCheckBoxs
-  var counterValue = 0;
-
-  // Function to update the progress counter
-  function updateCounter() {
-    progressCounter.textContent = counterValue;
-  }
-
-  // Function to handle checkbox changes
-  function handleCheckboxChange() {
-    // Check if the checkbox is checked
-    if (this.getAttribute("aria-checked") === "false") {
-      // Decrease counterValue if checkbox was checked and is now unchecked
-      counterValue++;
-      console.log(counterValue);
+checkButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    // Toggle the counter based on the current state
+    if (this.getAttribute("aria-checked") == "false") {
+      counter ++;
+    } else if (!this.getAttribute("aria-checked") == "false") {
+      counter --;
     } else {
-      // Increase counterValue if checkbox was unchecked and is now checked
-      counterValue--;
-      console.log(`This is else:${counterValue}`);
-    }
-
-    // Ensure counterValue doesn't go above 5
-    counterValue = Math.min(5, counterValue);
-
-    // Update the progress counter
+      counter;
+    } 
+    counter = Math.min(5, counter);
     updateCounter();
-  }
-
-  // Attach the handleCheckboxChange function to each SVG CHECK CONTAINER
-  SvgCheckBoxs.forEach(function (container) {
-    container.addEventListener("click", handleCheckboxChange);
   });
 });
+
+function updateCounter() {
+  document.getElementById("checkCounter").textContent = counter;
+}
 
 // Remove 'skeleton' class from all elements with class 'skeleton' on window load
 const allSkeleton = document.querySelectorAll(".skeleton");
