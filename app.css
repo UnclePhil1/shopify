@@ -1005,9 +1005,6 @@ button {
 }
 
 @media only screen and (max-width: 768px) {
-  .dropdownMenuMobile {
-  }
-
   .navbar {
     display: flex;
     gap: 4px;
@@ -1131,4 +1128,15 @@ button {
   .search-bar input {
     width: calc(100% + 100% + 100% + 60%);
   }
+}
+
+.buttonCount{
+  padding: 20px;
+}
+
+.buttonCount button:nth-child(1){
+  border: 2px solid green;
+}
+.buttonCount button:nth-child(2){
+  border: 2px solid red;
 }
