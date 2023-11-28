@@ -478,6 +478,7 @@ button {
   margin: auto 0;
   font-size: var(--font-size-large);
   padding: 0;
+  width: 100%;
 }
 
 .storesIcon:hover {
