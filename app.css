@@ -391,7 +391,9 @@ button {
   border-radius: 10px;
 }
 
-.dropdownMenuMobile:focus {
+.dropdownMenuMobile:focus-visible,
+.dropdown-menu:focus-visible
+{
   outline: 2px solid var(--dark);
 }
 
@@ -417,8 +419,8 @@ button {
   border-radius: 10px;
 }
 
-.dropdown-menu:focus,
-.noticeBox-dropDown:focus {
+.dropdown-menu:focus-visible,
+.noticeBox-dropDown:focus-visible {
   outline: 2px solid var(--gray-fifty);
 }
 
